@@ -3,8 +3,24 @@ use axum::{
     routing::get,
     Router,
 };
-
 use tokio::net::TcpListener;
+use lazy_static::{self, lazy_static};
+use tera::Tera;
+
+lazy_static! {
+    pub static ref TEMPLATES: Tera = {
+        let mut tera = match Tera::new("examples/basic/templates/**/*") {
+            Ok(t) => t,
+            Err(e) => {
+                println!("Parsing error(s): {}", e);
+                ::std::process::exit(1);
+            }
+        };
+        tera.autoescape_on(vec![".html", ".sql"]);
+        tera.register_filter("do_nothing", do_nothing_filter);
+        tera
+    };
+}
 
 #[tokio::main]
 async fn main() {
