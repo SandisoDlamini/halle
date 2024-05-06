@@ -1,0 +1,5 @@
+[env]
+
+
+# Scope down tracing, to filter
+RUST_LOG = "axum_webapp=debug"

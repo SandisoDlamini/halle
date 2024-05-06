@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="/assets/htmx.min.js"></script>
+    <link rel="stylesheet" href="/assets/tailwind.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
+
+    <!-- Allow any inheriting page to set it's own title -->
+    <title>{% block title %}{{ title }}{% endblock %}</title>
+
+    <!-- Allow any inheriting page to extend head with additional assets -->
+    {% block head %}{% endblock head %}
+  </head>
+
+  <body
+    class="bg-blue-950 bg-gradient-to-br from-teal-950 antialiased selection:bg-slate-500"
+  >
+    <div id="page" class="flex">
+      <div
+        id="sidebar"
+        class="left-0 top-0 h-screen w-64 flex-none flex-row border-4 border-emerald-800"
+      >
+        <!-- Inheriting pages will have their sidebar rendered here, similar to app root in React, Angular, etc. -->
+        {% block sidebar %}
+        <nav
+          id="sidebar-content"
+          class="fixed left-0 top-0 flex h-screen w-64 flex-col justify-between bg-teal-950 bg-gradient-to-br from-blue-950 pl-1 pr-2 shadow-sm shadow-current"
+        >
+          <ul class="">
+            <div class="flex" id="company-logo">
+              <a class="pt-6" id="company-icon">
+                <img src="/assets/icon5.png" width="48" height="48" />
+              </a>
+              <span class="font flex-col pl-4 pt-8 font-semibold text-blue-700"
+                >BlueRiver</span
+              >
+            </div>
+
+            <a
+              class="my-1 mt-8 block flex-col justify-center rounded-sm border-l-4 border-gray-500 px-2 py-3 pl-6 font-medium text-slate-400 transition-colors delay-0 duration-300 ease-in-out hover:border-sky-700 hover:bg-sky-600 hover:bg-gradient-to-r hover:from-sky-700 hover:text-slate-300"
+            >
+              Home
+            </a>
+
+            <a
+              class="my-1 block flex-col justify-center rounded-sm border-l-4 border-gray-500 px-2 py-3 pl-6 font-medium text-slate-400 transition-colors delay-0 duration-300 ease-in-out hover:border-sky-700 hover:bg-sky-600 hover:bg-gradient-to-r hover:from-sky-700 hover:text-slate-300"
+            >
+              Portfolio
+            </a>
+
+            <a
+              class="my-1 block flex-col justify-center rounded-sm border-l-4 border-gray-500 px-2 py-3 pl-6 font-medium text-slate-400 transition-colors delay-0 duration-300 ease-in-out hover:border-sky-700 hover:bg-sky-600 hover:bg-gradient-to-r hover:from-sky-700 hover:text-slate-300"
+            >
+              Interests
+            </a>
+
+            <a
+              class="my-1 block flex-col justify-center rounded-sm border-l-4 border-gray-500 px-2 py-3 pl-6 font-medium text-slate-400 transition-colors delay-0 duration-300 ease-in-out hover:border-sky-700 hover:bg-sky-600 hover:bg-gradient-to-r hover:from-sky-700 hover:text-slate-300"
+            >
+              Settings
+            </a>
+
+            <a
+              class="my-1 block flex-col justify-center rounded-sm border-l-4 border-gray-500 px-2 py-3 pl-6 font-medium text-slate-400 transition-colors delay-0 duration-300 ease-in-out hover:border-sky-700 hover:bg-sky-700 hover:bg-gradient-to-r hover:from-sky-700 hover:text-slate-300"
+            >
+              About
+            </a>
+          </ul>
+          <h1
+            x-data="{ message: 'I ❤️ Alpine' }"
+            x-text="message"
+            class="text-white"
+          ></h1>
+          <div class="pb-16 pt-8" id="watermark">
+            <h1 class="px-6 leading-relaxed text-slate-700">
+              Copyright © 2024 SandisoDlamini LLC
+            </h1>
+          </div>
+        </nav>
+
+        {% endblock sidebar %}
+      </div>
+
+      <main id="content" class="aspect-auto flex-auto scroll-smooth">
+        <div
+          class="relative flex items-center justify-between pt-6 font-semibold leading-6 text-slate-200"
+          id="top-bar"
+        >
+          <div
+            class="ml-16 flex w-96 rounded bg-slate-100 font-normal"
+            id="left-side"
+          >
+            <input
+              type="search"
+              id="search"
+              name="search"
+              placeholder="Begin typing to search"
+              class="w-full rounded border-none bg-slate-700 bg-transparent px-4 pl-2 text-gray-900 outline-none focus:outline-none"
+            />
+            <button
+              class="scale-95 rounded bg-teal-950 px-4 py-1 font-medium text-slate-100 hover:bg-teal-900 hover:bg-gradient-to-tr hover:from-teal-800"
+              type="button"
+            >
+              Search
+            </button>
+          </div>
+          <div class="hidden items-center md:flex" id="right-side">
+            <nav>
+              <ul class="flex items-center gap-x-8 pr-8">
+                <li
+                  class="-m-1 rounded-lg border border-white to-blue-600 px-2 transition-all ease-in-out hover:-m-1 hover:border-blue-600 hover:bg-emerald-600 hover:bg-gradient-to-bl hover:from-blue-700 hover:bg-clip-text hover:text-transparent"
+                >
+                  Coming Soon
+                </li>
+                <li class="hover:text-sky-400">Articles</li>
+                <li class="hover:text-sky-400">Explore</li>
+                <li class="hover:text-sky-400">Blog</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Inheriting pages will have their content rendered here, similar to app root in React, Angular, etc. -->
+        {% block content %}{% endblock content %}
+      </main>
+    </div>
+  </body>
+</html>
