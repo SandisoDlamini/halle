@@ -39,9 +39,19 @@ async fn main() {
     // region: -- create router
     let assets_path = std::env::current_dir().unwrap();
     info!("loading assets from {:?}", &assets_path);
+
+    let api_router = Router::new().route("/", get(htmx_hello));
+
     let app = Router::new()
-        .route("/", get(hello_handler))
-        .route("/main-page", get(hello_handler2))
+        .nest("/api", api_router)
+        .route("/home", get(load_home_page))
+        .route("/articles", get(load_articles_page))
+        .route("/explore", get(load_explore_page))
+        .route("/blog", get(load_blog_page))
+        .route("/portfolio", get(load_portfolio_page))
+        .route("/interests", get(load_interests_page))
+        .route("/settings", get(load_settings_page))
+        .route("/about", get(load_about_page))
         .nest_service(
             "/assets",
             ServeDir::new(format!("{}/assets", assets_path.to_str().unwrap())),
@@ -61,19 +71,71 @@ async fn main() {
 }
 
 // Region: ---HANDLER functions
-async fn hello_handler() -> impl IntoResponse {
-    debug!("{:<12} - app - hello_handler", "HANDLER");
+async fn htmx_hello() -> &'static str {
+    "Hello from htmx!!"
+}
+
+async fn load_settings_page() -> impl IntoResponse {
+    debug!("{:<12} - app: loading settings page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = TEMPLATES.render("index.html", &context1).unwrap();
+    let page_content = TEMPLATES.render("settings.html", &context1).unwrap();
     Html(page_content)
 }
 
-async fn hello_handler2() -> impl IntoResponse {
-    debug!("{:<12} - app - hello_handler2", "HANDLER");
+async fn load_home_page() -> impl IntoResponse {
+    debug!("{:<12} - app: loading main page...", "HANDLER");
 
     let context1 = tera::Context::new();
     let page_content = TEMPLATES.render("main-page.html", &context1).unwrap();
+    Html(page_content)
+}
+
+async fn load_articles_page() -> impl IntoResponse {
+    debug!("{:<12} - app: loading articles page...", "HANDLER");
+
+    let context1 = tera::Context::new();
+    let page_content = TEMPLATES.render("articles.html", &context1).unwrap();
+    Html(page_content)
+}
+
+async fn load_blog_page() -> impl IntoResponse {
+    debug!("{:<12} - app: loading blog page...", "HANDLER");
+
+    let context1 = tera::Context::new();
+    let page_content = TEMPLATES.render("blog.html", &context1).unwrap();
+    Html(page_content)
+}
+
+async fn load_explore_page() -> impl IntoResponse {
+    debug!("{:<12} - app: loading explore page...", "HANDLER");
+
+    let context1 = tera::Context::new();
+    let page_content = TEMPLATES.render("explore.html", &context1).unwrap();
+    Html(page_content)
+}
+
+async fn load_portfolio_page() -> impl IntoResponse {
+    debug!("{:<12} - app: loading portfolio page...", "HANDLER");
+
+    let context1 = tera::Context::new();
+    let page_content = TEMPLATES.render("portfolio.html", &context1).unwrap();
+    Html(page_content)
+}
+
+async fn load_interests_page() -> impl IntoResponse {
+    debug!("{:<12} - app: loading interests page...", "HANDLER");
+
+    let context1 = tera::Context::new();
+    let page_content = TEMPLATES.render("interests.html", &context1).unwrap();
+    Html(page_content)
+}
+
+async fn load_about_page() -> impl IntoResponse {
+    debug!("{:<12} - app: loading about page...", "HANDLER");
+
+    let context1 = tera::Context::new();
+    let page_content = TEMPLATES.render("about.html", &context1).unwrap();
     Html(page_content)
 }
 // Region: --- HANDLER functions

@@ -607,6 +607,10 @@ video {
   margin-bottom: 0.25rem;
 }
 
+.-mt-1 {
+  margin-top: -0.25rem;
+}
+
 .ml-16 {
   margin-left: 4rem;
 }
@@ -800,6 +804,11 @@ video {
   background-color: rgb(23 37 84 / var(--tw-bg-opacity));
 }
 
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
 .bg-slate-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(241 245 249 / var(--tw-bg-opacity));
@@ -853,14 +862,9 @@ video {
   background-color: rgb(245 243 255 / var(--tw-bg-opacity));
 }
 
-.bg-yellow-500 {
+.bg-gray-300 {
   --tw-bg-opacity: 1;
-  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
-}
-
-.bg-violet-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(76 29 149 / var(--tw-bg-opacity));
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-20 {
@@ -869,10 +873,6 @@ video {
 
 .bg-opacity-75 {
   --tw-bg-opacity: 0.75;
-}
-
-.bg-opacity-100 {
-  --tw-bg-opacity: 1;
 }
 
 .bg-\[url\(\'Flag\/Flag_of_Eswatini00\.png\'\)\] {
@@ -1020,6 +1020,10 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.pb-1 {
+  padding-bottom: 0.25rem;
 }
 
 .pb-12 {
