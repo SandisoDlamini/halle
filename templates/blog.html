@@ -4,5 +4,12 @@
 {% block title %}Blog - BlueRiver{% endblock title %}
 
 {% block content %}
-<div class="aspect-auto size-full bg-gray-200" id=""></div>
+<div class="aspect-auto size-full bg-gray-200" id="">
+ <h1
+            x-data="{ message: 'I ❤️ Alpine' }"
+            x-text="message"
+            class="mb-24 text-slate-600"
+          ></h1>
+
+</div>
 {% endblock content %}

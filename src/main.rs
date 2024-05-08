@@ -40,7 +40,7 @@ async fn main() {
     let assets_path = std::env::current_dir().unwrap();
     info!("loading assets from {:?}", &assets_path);
 
-    let api_router = Router::new().route("/", get(htmx_hello));
+    let api_router = Router::new().route("/hello", get(htmx_hello));
 
     let app = Router::new()
         .nest("/api", api_router)
@@ -72,6 +72,8 @@ async fn main() {
 
 // Region: ---HANDLER functions
 async fn htmx_hello() -> &'static str {
+    debug!("{:<12} - app: loading hello api...", "HANDLER");
+
     "Hello from htmx!!"
 }
 
