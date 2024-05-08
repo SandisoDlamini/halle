@@ -89,7 +89,7 @@ async fn load_home_page() -> impl IntoResponse {
     debug!("{:<12} - app: loading main page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = TEMPLATES.render("main-page.html", &context1).unwrap();
+    let page_content = TEMPLATES.render("home.html", &context1).unwrap();
     Html(page_content)
 }
 
