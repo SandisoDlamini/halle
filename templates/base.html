@@ -35,7 +35,7 @@
     {% block head %}{% endblock head %}
   </head>
 
-  <body class="bg-slate-900 antialiased selection:bg-slate-500">
+  <body hx-boost="true" class="bg-slate-900 antialiased selection:bg-slate-500">
     <div id="page" class="flex">
       <div id="sidebar" class="left-0 top-0 h-screen w-64 flex-none flex-row">
         <!-- Inheriting pages will have their sidebar rendered here, similar to app root in React, Angular, etc. -->
@@ -52,7 +52,7 @@
               <a
                 class="font flex-col pl-4 pt-8 font-semibold text-blue-700"
                 href="/home"
-                ><span>BlueRiver</span></a
+                ><span>halle</span></a
               >
             </div>
 
@@ -113,7 +113,7 @@
               class="w-full rounded border-none bg-slate-700 bg-transparent px-4 pl-2 text-gray-900 outline-none focus:outline-none"
             />
             <button
-              class="scale-95 rounded bg-teal-950 px-4 py-1 font-medium text-slate-100 hover:bg-teal-900 hover:bg-gradient-to-tr hover:from-teal-800"
+              class="bg scale-95 rounded bg-cyan-950 px-4 py-1 font-medium text-violet-100 hover:bg-teal-900 hover:bg-gradient-to-tr hover:from-teal-800"
               type="button"
               hx-get="/api/hello"
               hx-swap="innerHTML"
@@ -124,18 +124,13 @@
           <div class="hidden items-center md:flex" id="right-side">
             <nav>
               <ul class="flex items-center gap-x-8 pr-8">
-                <li
-                  class="-m-1 rounded-lg border border-white to-blue-600 px-2 transition-all ease-in-out hover:-m-1 hover:border-blue-600 hover:bg-emerald-600 hover:bg-gradient-to-bl hover:from-blue-700 hover:bg-clip-text hover:text-transparent"
-                >
-                  Coming Soon
-                </li>
-                <li class="hover:text-sky-400">
+                <li class="hover:text-cyan-400">
                   <a href="/articles">Articles</a>
                 </li>
-                <li class="hover:text-sky-400">
+                <li class="hover:text-cyan-400">
                   <a href="/explore">Explore</a>
                 </li>
-                <li class="hover:text-sky-400">
+                <li class="hover:text-cyan-400">
                   <a href="/blog">Blog</a>
                 </li>
               </ul>

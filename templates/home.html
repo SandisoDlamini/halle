@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 <!-- prettier-ignore -->
 
-{% block title %}BlueRiver - Discover and Explore the culture of the Wonderful Kingdom of Eswatini {% endblock title %}
+{% block title %}halle - Discover and Explore the culture of the Wonderful Kingdom of Eswatini {% endblock title %}
 
 {% block content %}
-<container class="mb-32 justify-center -translate-x-12 flex flex-row-reverse">
+<container class="mb-32 flex -translate-x-12 flex-row-reverse justify-center">
   <div
-    class=" mt-16 grid w-5/12 select-none grid-cols-4 gap-3 rounded-lg bg-slate-800/5 bg-gradient-to-b from-slate-700/5 via-slate-500/5 px-4 py-4"
+    class="mt-16 grid w-5/12 select-none grid-cols-4 gap-3 rounded-lg bg-slate-800/5 bg-gradient-to-b from-slate-700/5 via-slate-500/5 px-4 py-4"
   >
     <div class="grid grid-rows-3 gap-3 pt-8">
       <div
@@ -101,16 +101,18 @@
       </div>
     </div>
   </div>
-  <section class="-translate-x-12 grid w-4/12 place-content-end pb-8">
+  <section class="grid w-4/12 -translate-x-12 place-content-end pb-8">
     <h1
-      class=" pb-4 pl-4 text-center text-3xl font-extrabold tracking-tight text-white"
+      class="pb-4 pl-4 text-center text-3xl font-extrabold tracking-tight text-white"
     >
       Discover and explore the culture of the Wonderful
-      <span class="bg-violet-800 bg-gradient-to-bl from-blue-800 via-purple-800 bg-clip-text text-transparent">Kingdom of Eswatini.</span>
+      <span
+        class="bg-violet-800 bg-gradient-to-bl from-blue-800 via-purple-800 bg-clip-text text-transparent selection:text-white"
+        >Kingdom of Eswatini.</span
+      >
     </h1>
   </section>
 </container>
-
 
 <a href="#scenery"
   ><button
@@ -128,8 +130,7 @@
       stroke="currentColor"
     >
       <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-    </svg>
-</button
+    </svg></button
 ></a>
 
 <nav
