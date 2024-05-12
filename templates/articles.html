@@ -1,19 +1,91 @@
 {% extends "base.html" %}
 <!-- prettier-ignore -->
 
-{% block title %}Articles - halle{% endblock title %}
+{% block title %}Explore - halle{% endblock title %}
 
 {% block content %}
-<div class="aspect-auto size-full flex flex-row gap-4" id="">
-   <div
-    class="ml-6 mt-2 mb-2 aspect-auto w-8/12 rounded-md bg-slate-800/20 ring-1 ring-inset ring-slate-200/5 drop-shadow-md backdrop-blur"
+<div class="aspect-auto size-full" id="">
+  <div
+    class="m-auto mt-4 grid w-5/6 grid-cols-3 justify-evenly gap-4 bg-slate-500/0"
     id=""
-  ></div>
+  >
+    <article
+      class="h-64 rounded-lg bg-slate-500/5 px-1 duration-150 hover:-translate-y-1"
+    >
+      <a href="">
+        <div class="grid grid-cols-2 justify-between">
+          <time
+            class="text-slate-400"
+            datetime="
+            datetime_date"
+            >12 May, 2024</time
+          >
+          <div class="size-fit rounded-3xl bg-slate-200 px-3 text-slate-800">
+            Rust
+          </div>
+        </div>
+        <div class="grid grid-rows-2 group justify-between gap-6" id="">
+          <h3 class="text-2xl font-extrabold text-slate-200 group-hover:underline">
+            Learning rust web development wth axum, htmx and tailwind
+          </h3>
+          <p class="text-slate-400">
+            With so much of the world wide web dependant on javascript...
+          </p>
+        </div>
+      </a>
+    </article>
 
-<div
-    class="mr-6 mt-6 aspect-auto w-4/12 h-3/5 rounded-lg bg-slate-800/10 ring-1 ring-inset ring-slate-200/5 drop-shadow-md backdrop-blur"
-    id=""
-  ></div>
+    <article
+      class="h-64 rounded-lg bg-slate-500/5 px-1 duration-150 hover:-translate-y-1"
+    >
+      <a href="">
+        <div class="grid grid-cols-2 justify-between">
+          <time
+            class="text-slate-400"
+            datetime="
+            datetime_date"
+            >12 May, 2024</time
+          >
+          <div class="size-fit rounded-3xl bg-slate-200 px-3 text-slate-800">
+            Rust
+          </div>
+        </div>
+        <div class="grid grid-rows-2 group justify-between gap-6" id="">
+          <h3 class="text-2xl font-extrabold text-slate-200 group-hover:underline">
+            Learning rust web development wth axum, htmx and tailwind
+          </h3>
+          <p class="text-slate-400">
+            With so much of the world wide web dependant on javascript...
+          </p>
+        </div>
+      </a>
+    </article>
 
+    <article
+      class="h-64 rounded-lg bg-slate-500/5 px-1 duration-150 hover:-translate-y-1"
+    >
+      <a href="">
+        <div class="grid grid-cols-2 justify-between">
+          <time
+            class="text-slate-400"
+            datetime="
+            datetime_date"
+            >12 May, 2024</time
+          >
+          <div class="size-fit rounded-3xl bg-slate-200 px-3 text-slate-800">
+            Rust
+          </div>
+        </div>
+        <div class="grid grid-rows-2 group justify-between gap-6" id="">
+          <h3 class="text-2xl font-extrabold text-slate-200 group-hover:underline">
+            Learning rust web development wth axum, htmx and tailwind
+          </h3>
+          <p class="text-slate-400">
+            With so much of the world wide web dependant on javascript...
+          </p>
+        </div>
+      </a>
+    </article>
+  </div>
 </div>
 {% endblock content %}

@@ -48,9 +48,9 @@ async fn main() {
         .route("/articles", get(load_articles_page))
         .route("/explore", get(load_explore_page))
         .route("/blog", get(load_blog_page))
-        .route("/portfolio", get(load_portfolio_page))
+        .route("/places", get(load_places_page))
         .route("/interests", get(load_interests_page))
-        .route("/settings", get(load_settings_page))
+        .route("/events", get(load_events_page))
         .route("/about", get(load_about_page))
         .nest_service(
             "/assets",
@@ -77,11 +77,11 @@ async fn htmx_hello() -> &'static str {
     "Hello from htmx!!"
 }
 
-async fn load_settings_page() -> impl IntoResponse {
-    debug!("{:<12} - app: loading settings page...", "HANDLER");
+async fn load_events_page() -> impl IntoResponse {
+    debug!("{:<12} - app: loading events page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = TEMPLATES.render("settings.html", &context1).unwrap();
+    let page_content = TEMPLATES.render("events.html", &context1).unwrap();
     Html(page_content)
 }
 
@@ -117,11 +117,11 @@ async fn load_explore_page() -> impl IntoResponse {
     Html(page_content)
 }
 
-async fn load_portfolio_page() -> impl IntoResponse {
-    debug!("{:<12} - app: loading portfolio page...", "HANDLER");
+async fn load_places_page() -> impl IntoResponse {
+    debug!("{:<12} - app: loading places page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = TEMPLATES.render("portfolio.html", &context1).unwrap();
+    let page_content = TEMPLATES.render("places.html", &context1).unwrap();
     Html(page_content)
 }
 
