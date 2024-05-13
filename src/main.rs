@@ -81,7 +81,14 @@ async fn load_events_page() -> impl IntoResponse {
     debug!("{:<12} - app: loading events page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = TEMPLATES.render("events.html", &context1).unwrap();
+    let page_content = match TEMPLATES.render("events.html", &context1) {
+        Ok(t) => t,
+        Err(e) => {
+            println!("Parsing error(s): {}", e);
+            ::std::process::exit(1);
+        }
+    };
+
     Html(page_content)
 }
 
@@ -89,7 +96,14 @@ async fn load_home_page() -> impl IntoResponse {
     debug!("{:<12} - app: loading main page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = TEMPLATES.render("home.html", &context1).unwrap();
+    let page_content = match TEMPLATES.render("home.html", &context1) {
+        Ok(t) => t,
+        Err(e) => {
+            println!("Parsing error(s): {}", e);
+            ::std::process::exit(1);
+        }
+    };
+
     Html(page_content)
 }
 
@@ -97,7 +111,14 @@ async fn load_articles_page() -> impl IntoResponse {
     debug!("{:<12} - app: loading articles page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = TEMPLATES.render("articles.html", &context1).unwrap();
+    let page_content = match TEMPLATES.render("articles.html", &context1) {
+        Ok(t) => t,
+        Err(e) => {
+            println!("Parsing error(s): {}", e);
+            ::std::process::exit(1);
+        }
+    };
+
     Html(page_content)
 }
 
@@ -105,7 +126,14 @@ async fn load_blog_page() -> impl IntoResponse {
     debug!("{:<12} - app: loading blog page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = TEMPLATES.render("blog.html", &context1).unwrap();
+    let page_content = match TEMPLATES.render("blog.html", &context1) {
+        Ok(t) => t,
+        Err(e) => {
+            println!("Parsing error(s): {}", e);
+            ::std::process::exit(1);
+        }
+    };
+
     Html(page_content)
 }
 
@@ -113,7 +141,14 @@ async fn load_explore_page() -> impl IntoResponse {
     debug!("{:<12} - app: loading explore page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = TEMPLATES.render("explore.html", &context1).unwrap();
+    let page_content = match TEMPLATES.render("explore.html", &context1) {
+        Ok(t) => t,
+        Err(e) => {
+            println!("Parsing error(s): {}", e);
+            ::std::process::exit(1);
+        }
+    };
+
     Html(page_content)
 }
 
@@ -121,7 +156,14 @@ async fn load_places_page() -> impl IntoResponse {
     debug!("{:<12} - app: loading places page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = TEMPLATES.render("places.html", &context1).unwrap();
+    let page_content = match TEMPLATES.render("places.html", &context1) {
+        Ok(t) => t,
+        Err(e) => {
+            println!("Parsing error(s): {}", e);
+            ::std::process::exit(1);
+        }
+    };
+
     Html(page_content)
 }
 
@@ -129,7 +171,14 @@ async fn load_interests_page() -> impl IntoResponse {
     debug!("{:<12} - app: loading interests page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = TEMPLATES.render("interests.html", &context1).unwrap();
+    let page_content = match TEMPLATES.render("interests.html", &context1) {
+        Ok(t) => t,
+        Err(e) => {
+            println!("Parsing error(s): {}", e);
+            ::std::process::exit(1);
+        }
+    };
+
     Html(page_content)
 }
 
@@ -137,7 +186,14 @@ async fn load_about_page() -> impl IntoResponse {
     debug!("{:<12} - app: loading about page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = TEMPLATES.render("about.html", &context1).unwrap();
+    let page_content = match TEMPLATES.render("about.html", &context1) {
+        Ok(t) => t,
+        Err(e) => {
+            println!("Parsing error(s): {}", e);
+            ::std::process::exit(1);
+        }
+    };
+
     Html(page_content)
 }
 // Region: --- HANDLER functions
