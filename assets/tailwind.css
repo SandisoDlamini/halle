@@ -1026,6 +1026,14 @@ video {
   border-color: rgb(71 85 105 / 0.9);
 }
 
+.border-gray-500\/90 {
+  border-color: rgb(107 114 128 / 0.9);
+}
+
+.border-slate-500\/90 {
+  border-color: rgb(100 116 139 / 0.9);
+}
+
 .bg-cyan-950 {
   --tw-bg-opacity: 1;
   background-color: rgb(8 51 68 / var(--tw-bg-opacity));
