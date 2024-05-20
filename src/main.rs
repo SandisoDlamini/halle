@@ -42,11 +42,15 @@ async fn main() {
 
     let api_router = Router::new().route("/hello", get(htmx_hello));
 
-    let app = Router::new()
-        .nest("/api", api_router)
-        .route("/home", get(load_home_page))
+    let articles_router = Router::new()
         .route("/articles", get(load_articles_page))
-        .route("/explore", get(load_explore_page))
+        .route("/articles/article1", get(load_article1_page));
+
+    let app = Router::new()
+        .route("/", get(load_home_page))
+        .nest("/api", api_router)
+        .merge(articles_router)
+        .route("/history", get(load_history_page))
         .route("/blog", get(load_blog_page))
         .route("/places", get(load_places_page))
         .route("/interests", get(load_interests_page))
@@ -122,11 +126,11 @@ async fn load_articles_page() -> impl IntoResponse {
     Html(page_content)
 }
 
-async fn load_blog_page() -> impl IntoResponse {
-    debug!("{:<12} - app: loading blog page...", "HANDLER");
+async fn load_article1_page() -> impl IntoResponse {
+    debug!("{:<12} - app: loading article1 page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = match TEMPLATES.render("blog.html", &context1) {
+    let page_content = match TEMPLATES.render("article1.html", &context1) {
         Ok(t) => t,
         Err(e) => {
             println!("Parsing error(s): {}", e);
@@ -137,11 +141,26 @@ async fn load_blog_page() -> impl IntoResponse {
     Html(page_content)
 }
 
-async fn load_explore_page() -> impl IntoResponse {
-    debug!("{:<12} - app: loading explore page...", "HANDLER");
+async fn load_history_page() -> impl IntoResponse {
+    debug!("{:<12} - app: loading history page...", "HANDLER");
 
     let context1 = tera::Context::new();
-    let page_content = match TEMPLATES.render("explore.html", &context1) {
+    let page_content = match TEMPLATES.render("history.html", &context1) {
+        Ok(t) => t,
+        Err(e) => {
+            println!("Parsing error(s): {}", e);
+            ::std::process::exit(1);
+        }
+    };
+
+    Html(page_content)
+}
+
+async fn load_blog_page() -> impl IntoResponse {
+    debug!("{:<12} - app: loading blog page...", "HANDLER");
+
+    let context1 = tera::Context::new();
+    let page_content = match TEMPLATES.render("blog.html", &context1) {
         Ok(t) => t,
         Err(e) => {
             println!("Parsing error(s): {}", e);
