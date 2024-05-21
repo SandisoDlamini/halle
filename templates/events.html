@@ -3,6 +3,25 @@
 
 {% block title %}Events in Eswatini - halle{% endblock title %}
 
+{% block top_bar_nav %}
+<ul class="flex items-center gap-x-8 pr-8">
+  <a
+    aria-pressed="true"
+    href="/events"
+    class="-mx-3 size-fit px-3 aria-pressed:underline aria-pressed:underline-offset-4"
+  >
+    <span>Events</span>
+  </a>
+  <a
+    href="/blog"
+    class="-mx-3 size-fit px-3 opacity-65 hover:rounded-3xl hover:bg-slate-200 hover:text-slate-800 hover:opacity-100"
+  >
+    <span>Blog</span>
+  </a>
+</ul>
+{% endblock top_bar_nav %}
+
+
 {% block content %}
 <div
   class="mt-4 grid aspect-auto size-full place-items-center rounded-sm bg-slate-500/5"
