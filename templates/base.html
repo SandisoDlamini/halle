@@ -37,7 +37,10 @@
 
   <body hx-boost="true" class="bg-slate-900 antialiased selection:bg-slate-500">
     <div id="page" class="flex">
-      <div id="sidebar" class="left-0 top-0 h-screen w-64 flex-none flex-row">
+      <div
+        id="sidebar"
+        class="left-0 top-0 h-screen w-64 flex-none flex-row print:hidden"
+      >
         <nav
           id="sidebar-content"
           class="fixed left-0 top-0 flex h-screen w-64 flex-col justify-between rounded-lg bg-slate-800/5 pl-1 pr-2 backdrop-blur-lg"
@@ -54,8 +57,13 @@
               <a
                 class="font flex-col pl-4 pt-8 font-semibold text-blue-600"
                 href="/"
-                ><p>hall<span class="text-blue-600">e</span></p></a
+                ><h1>hall<span class="text-blue-600">e</span></h1></a
               >
+              <p
+                class="mt-7 size-fit scale-75 rounded-3xl bg-slate-400 px-2 text-violet-900"
+              >
+                Beta
+              </p>
             </div>
 
             <!-- Inheriting pages will have their sidebar rendered here, similar to app root in React, Angular, etc. -->
@@ -101,7 +109,7 @@
 
       <main id="content" class="aspect-auto flex-auto scroll-smooth">
         <div
-          class="relative flex items-center justify-between pb-1 pt-6 font-semibold leading-6 text-slate-200"
+          class="relative flex items-center justify-between pb-1 pt-6 font-semibold leading-6 text-slate-200 print:hidden"
           id="top-bar"
         >
           <div
@@ -148,7 +156,7 @@
 
         <!-- Inheriting pages will have their content rendered here, similar to app root in React, Angular, etc. -->
         {% block content %}{% endblock content %}
-        <footer class="flex items-center justify-between">
+        <footer class="flex items-center justify-between print:hidden">
           {% block footer %}
           <div class="pb-16 pt-8" id="watermark">
             <h1 class="w-fit px-6 text-center leading-relaxed text-slate-700">
