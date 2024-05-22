@@ -1,8 +1,4 @@
-use axum::{
-    response::{Html, IntoResponse},
-    routing::get,
-    Router,
-};
+use axum::{response::Html, routing::get, Router};
 use lazy_static::lazy_static;
 use tera::Tera;
 use tokio::net::TcpListener;
@@ -81,7 +77,7 @@ async fn htmx_hello() -> &'static str {
     "Hello from htmx!!"
 }
 
-async fn load_events_page() -> impl IntoResponse {
+async fn load_events_page() -> Html<String> {
     debug!("{:<12} - app: loading events page...", "HANDLER");
 
     let context1 = tera::Context::new();
@@ -96,7 +92,7 @@ async fn load_events_page() -> impl IntoResponse {
     Html(page_content)
 }
 
-async fn load_home_page() -> impl IntoResponse {
+async fn load_home_page() -> Html<String> {
     debug!("{:<12} - app: loading main page...", "HANDLER");
 
     let context1 = tera::Context::new();
@@ -111,7 +107,7 @@ async fn load_home_page() -> impl IntoResponse {
     Html(page_content)
 }
 
-async fn load_articles_page() -> impl IntoResponse {
+async fn load_articles_page() -> Html<String> {
     debug!("{:<12} - app: loading articles page...", "HANDLER");
 
     let context1 = tera::Context::new();
@@ -126,7 +122,7 @@ async fn load_articles_page() -> impl IntoResponse {
     Html(page_content)
 }
 
-async fn load_article1_page() -> impl IntoResponse {
+async fn load_article1_page() -> Html<String> {
     debug!("{:<12} - app: loading article1 page...", "HANDLER");
 
     let context1 = tera::Context::new();
@@ -141,7 +137,7 @@ async fn load_article1_page() -> impl IntoResponse {
     Html(page_content)
 }
 
-async fn load_history_page() -> impl IntoResponse {
+async fn load_history_page() -> Html<String> {
     debug!("{:<12} - app: loading history page...", "HANDLER");
 
     let context1 = tera::Context::new();
@@ -156,7 +152,7 @@ async fn load_history_page() -> impl IntoResponse {
     Html(page_content)
 }
 
-async fn load_blog_page() -> impl IntoResponse {
+async fn load_blog_page() -> Html<String> {
     debug!("{:<12} - app: loading blog page...", "HANDLER");
 
     let context1 = tera::Context::new();
@@ -171,7 +167,7 @@ async fn load_blog_page() -> impl IntoResponse {
     Html(page_content)
 }
 
-async fn load_places_page() -> impl IntoResponse {
+async fn load_places_page() -> Html<String> {
     debug!("{:<12} - app: loading places page...", "HANDLER");
 
     let context1 = tera::Context::new();
@@ -186,7 +182,7 @@ async fn load_places_page() -> impl IntoResponse {
     Html(page_content)
 }
 
-async fn load_interests_page() -> impl IntoResponse {
+async fn load_interests_page() -> Html<String> {
     debug!("{:<12} - app: loading interests page...", "HANDLER");
 
     let context1 = tera::Context::new();
@@ -201,7 +197,7 @@ async fn load_interests_page() -> impl IntoResponse {
     Html(page_content)
 }
 
-async fn load_about_page() -> impl IntoResponse {
+async fn load_about_page() -> Html<String> {
     debug!("{:<12} - app: loading about page...", "HANDLER");
 
     let context1 = tera::Context::new();
