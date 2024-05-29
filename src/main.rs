@@ -20,6 +20,30 @@ lazy_static! {
     };
 }
 
+macro_rules! create_page_function {
+    ($func_name:ident, $expression:expr) => {
+        async fn $func_name() -> Html<String> {
+            debug!(
+                "{:<12} - app: loading {} page...",
+                "HANDLER",
+                stringify!($func_name)
+            );
+
+            let context1 = tera::Context::new();
+            let template_name = $expression;
+            let page_content = match TEMPLATES.render(template_name, &context1) {
+                Ok(t) => t,
+                Err(e) => {
+                    println!("Parsing error(s): {}", e);
+                    ::std::process::exit(1);
+                }
+            };
+
+            Html(page_content)
+        }
+    };
+}
+
 #[tokio::main]
 async fn main() {
     tracing_subscriber::registry()
@@ -39,7 +63,7 @@ async fn main() {
     let api_router = Router::new().route("/hello", get(htmx_hello));
 
     let articles_router = Router::new()
-        .route("/articles", get(load_articles_page))
+        .route("/articles", get(articles))
         .route("/articles/article1", get(load_article1_page));
 
     let app = Router::new()
@@ -77,6 +101,8 @@ async fn htmx_hello() -> &'static str {
     "Hello from htmx!!"
 }
 
+create_page_function!(articles, "articles.html");
+
 async fn load_events_page() -> Html<String> {
     debug!("{:<12} - app: loading events page...", "HANDLER");
 
@@ -97,21 +123,6 @@ async fn load_home_page() -> Html<String> {
 
     let context1 = tera::Context::new();
     let page_content = match TEMPLATES.render("home.html", &context1) {
-        Ok(t) => t,
-        Err(e) => {
-            println!("Parsing error(s): {}", e);
-            ::std::process::exit(1);
-        }
-    };
-
-    Html(page_content)
-}
-
-async fn load_articles_page() -> Html<String> {
-    debug!("{:<12} - app: loading articles page...", "HANDLER");
-
-    let context1 = tera::Context::new();
-    let page_content = match TEMPLATES.render("articles.html", &context1) {
         Ok(t) => t,
         Err(e) => {
             println!("Parsing error(s): {}", e);
