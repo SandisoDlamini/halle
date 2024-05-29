@@ -64,18 +64,18 @@ async fn main() {
 
     let articles_router = Router::new()
         .route("/articles", get(articles))
-        .route("/articles/article1", get(load_article1_page));
+        .route("/articles/article1", get(article1));
 
     let app = Router::new()
-        .route("/", get(load_home_page))
+        .route("/", get(home))
         .nest("/api", api_router)
         .merge(articles_router)
-        .route("/history", get(load_history_page))
-        .route("/blog", get(load_blog_page))
-        .route("/places", get(load_places_page))
-        .route("/interests", get(load_interests_page))
-        .route("/events", get(load_events_page))
-        .route("/about", get(load_about_page))
+        .route("/history", get(history))
+        .route("/blog", get(blog))
+        .route("/places", get(places))
+        .route("/interests", get(interests))
+        .route("/events", get(events))
+        .route("/about", get(about))
         .nest_service(
             "/assets",
             ServeDir::new(format!("{}/assets", assets_path.to_str().unwrap())),
@@ -101,125 +101,13 @@ async fn htmx_hello() -> &'static str {
     "Hello from htmx!!"
 }
 
+create_page_function!(home, "home.html");
+create_page_function!(places, "places.html");
+create_page_function!(interests, "interests.html");
 create_page_function!(articles, "articles.html");
-
-async fn load_events_page() -> Html<String> {
-    debug!("{:<12} - app: loading events page...", "HANDLER");
-
-    let context1 = tera::Context::new();
-    let page_content = match TEMPLATES.render("events.html", &context1) {
-        Ok(t) => t,
-        Err(e) => {
-            println!("Parsing error(s): {}", e);
-            ::std::process::exit(1);
-        }
-    };
-
-    Html(page_content)
-}
-
-async fn load_home_page() -> Html<String> {
-    debug!("{:<12} - app: loading main page...", "HANDLER");
-
-    let context1 = tera::Context::new();
-    let page_content = match TEMPLATES.render("home.html", &context1) {
-        Ok(t) => t,
-        Err(e) => {
-            println!("Parsing error(s): {}", e);
-            ::std::process::exit(1);
-        }
-    };
-
-    Html(page_content)
-}
-
-async fn load_article1_page() -> Html<String> {
-    debug!("{:<12} - app: loading article1 page...", "HANDLER");
-
-    let context1 = tera::Context::new();
-    let page_content = match TEMPLATES.render("article1.html", &context1) {
-        Ok(t) => t,
-        Err(e) => {
-            println!("Parsing error(s): {}", e);
-            ::std::process::exit(1);
-        }
-    };
-
-    Html(page_content)
-}
-
-async fn load_history_page() -> Html<String> {
-    debug!("{:<12} - app: loading history page...", "HANDLER");
-
-    let context1 = tera::Context::new();
-    let page_content = match TEMPLATES.render("history.html", &context1) {
-        Ok(t) => t,
-        Err(e) => {
-            println!("Parsing error(s): {}", e);
-            ::std::process::exit(1);
-        }
-    };
-
-    Html(page_content)
-}
-
-async fn load_blog_page() -> Html<String> {
-    debug!("{:<12} - app: loading blog page...", "HANDLER");
-
-    let context1 = tera::Context::new();
-    let page_content = match TEMPLATES.render("blog.html", &context1) {
-        Ok(t) => t,
-        Err(e) => {
-            println!("Parsing error(s): {}", e);
-            ::std::process::exit(1);
-        }
-    };
-
-    Html(page_content)
-}
-
-async fn load_places_page() -> Html<String> {
-    debug!("{:<12} - app: loading places page...", "HANDLER");
-
-    let context1 = tera::Context::new();
-    let page_content = match TEMPLATES.render("places.html", &context1) {
-        Ok(t) => t,
-        Err(e) => {
-            println!("Parsing error(s): {}", e);
-            ::std::process::exit(1);
-        }
-    };
-
-    Html(page_content)
-}
-
-async fn load_interests_page() -> Html<String> {
-    debug!("{:<12} - app: loading interests page...", "HANDLER");
-
-    let context1 = tera::Context::new();
-    let page_content = match TEMPLATES.render("interests.html", &context1) {
-        Ok(t) => t,
-        Err(e) => {
-            println!("Parsing error(s): {}", e);
-            ::std::process::exit(1);
-        }
-    };
-
-    Html(page_content)
-}
-
-async fn load_about_page() -> Html<String> {
-    debug!("{:<12} - app: loading about page...", "HANDLER");
-
-    let context1 = tera::Context::new();
-    let page_content = match TEMPLATES.render("about.html", &context1) {
-        Ok(t) => t,
-        Err(e) => {
-            println!("Parsing error(s): {}", e);
-            ::std::process::exit(1);
-        }
-    };
-
-    Html(page_content)
-}
+create_page_function!(article1, "article1.html");
+create_page_function!(history, "history.html");
+create_page_function!(events, "events.html");
+create_page_function!(blog, "blog.html");
+create_page_function!(about, "about.html");
 // Region: --- HANDLER functions
