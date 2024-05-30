@@ -64,7 +64,8 @@ async fn main() {
 
     let articles_router = Router::new()
         .route("/articles", get(articles))
-        .route("/articles/article1", get(article1));
+        .route("/articles/article1", get(article1))
+        .route("/articles/article2", get(article2));
 
     let app = Router::new()
         .route("/", get(home))
@@ -80,7 +81,7 @@ async fn main() {
             "/assets",
             ServeDir::new(format!("{}/assets", assets_path.to_str().unwrap())),
         );
-    // region: -- create router
+    // endregion: -- create router
 
     // region: ---Start Server
     let listener = TcpListener::bind("127.0.0.1:8080").await.unwrap();
@@ -91,10 +92,10 @@ async fn main() {
     axum::serve(listener, app.into_make_service())
         .await
         .unwrap();
-    // region: ---Start Server
+    // endregion: ---Start Server
 }
 
-// Region: ---HANDLER functions
+// region: ---HANDLER functions
 async fn htmx_hello() -> &'static str {
     debug!("{:<12} - app: loading hello api...", "HANDLER");
 
@@ -110,4 +111,5 @@ create_page_function!(history, "history.html");
 create_page_function!(events, "events.html");
 create_page_function!(blog, "blog.html");
 create_page_function!(about, "about.html");
-// Region: --- HANDLER functions
+create_page_function!(article2, "article2.html");
+// endregion: --- HANDLER functions
