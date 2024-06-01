@@ -4,7 +4,6 @@
 {% block title %}Blog - halle{% endblock title %}
 
 {% block top_bar_nav %}
-<ul class="flex items-center gap-x-8 pr-8">
   <a
     href="/events"
     class="-mx-3 size-fit px-3 opacity-65 hover:rounded-3xl hover:bg-slate-200 hover:text-slate-800 hover:opacity-100"
@@ -18,18 +17,40 @@
   >
     <span>Blog</span>
   </a>
-</ul>
 {% endblock top_bar_nav %}
 
 {% block content %}
 <div
-  class="mt-4 grid aspect-auto size-full place-items-center rounded-sm bg-slate-500/5"
+  class="flex size-full h-screen flex-col place-items-center rounded-sm lg:mt-4"
   id=""
 >
-  <div class="m-auto w-3/4 text-xl text-blue-500">
-    Hi there, my name is <a href="/articles/article2">Sandiso</a> Dlamini. I'm a self-taught rust and python
-    programmer currently focused on building functional and practically
-    applicable webapps using various technologies including python(Django and
-    Flask), axum(rust), tailwind and htmx.
+  <div class="mb-6">
+    <div
+      class="relative grid h-64 w-80 place-items-end overflow-hidden rounded-sm bg-[url('People/girl1.webp')] md:hidden md:h-72 md:w-[40rem]"
+    ></div>
+    <div
+      class="relative my-1 grid h-[200px] w-80 place-items-end overflow-hidden rounded-t-sm rounded-bl-sm md:my-0 md:h-72 md:w-[40rem] md:bg-[url('People/girl1.webp')]"
+    >
+      <div
+        class="absolute h-[200px] w-80 rounded-sm md:h-72 md:w-[40rem] "
+      ></div>
+      <div
+        class="absolute m-auto mr-2 mt-2 h-[200px] w-72 rounded-t-sm bg-gray-600/80 text-xl text-blue-500"
+      ></div>
+      <div class="absolute grid h-52 w-72 rounded-t-sm bg-slate-800">
+        <div class="h-20 rounded-t-sm bg-slate-400/80">
+          <h1 class="ml-1 mt-10 text-2xl text-slate-950 font-extrabold">About me</h1>
+        </div>
+        <div class="h-32 ">
+          <p class="ml-1 text-slate-200">
+            Hi there, my name is
+            <a href="/articles/article2">Sandiso</a> Dlamini. I'm a self-taught
+            rust and python programmer building functional and practically
+            applicable webapps.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
-</div>{% endblock content %}
+ </div>
+{% endblock content %}

@@ -24,13 +24,19 @@
 {% block content %}
 <div
   class="mt-4 grid aspect-auto size-full place-items-center rounded-sm bg-red-500"
-  id=""
 >
-  <div class="m-auto aspect-auto w-96 h-56 bg-gray-600 text-xl text-blue-500">Hello</div>
-  <div class="aspect-auto w-96 h-56 bg-blue-400">
-    <div class="aspect-auto bg-yellow-500"></div>
-    <div class="aspect-auto bg-pink-500"></div>
-    World
+  <div
+    class="relative grid h-72 w-[40rem] place-items-end overflow-hidden rounded-sm bg-emerald-600"
+  >
+    <div
+      class="absolute m-auto mr-2 mt-2 h-[200px] w-72 rounded-t-sm bg-gray-600/80 text-xl text-blue-500"
+    >
+      Hello
+    </div>
+    <div class="absolute grid h-52 w-72 rounded-t-sm bg-blue-400">
+      <div class="h-20 rounded-t-sm bg-yellow-500"></div>
+      <div class="h-32 bg-pink-500">World</div>
+    </div>
   </div>
 </div>
 {% endblock content %}

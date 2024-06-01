@@ -42,119 +42,147 @@
 {% endblock sidebar %}
 
 {% block content %}
-<container class="mb-32 flex -translate-x-12 flex-row-reverse justify-center">
-  <div
-    class="mt-16 grid w-5/12 select-none grid-cols-4 gap-3 rounded-lg bg-slate-800/5 bg-gradient-to-b from-slate-700/5 via-slate-500/5 px-4 py-4"
+<div class="grid h-screen place-items-center" id="landing">
+  <container
+    class="mb-32 flex flex-col justify-center lg:mb-32 lg:-translate-x-12 lg:flex-row-reverse"
   >
-    <div class="grid grid-rows-3 gap-3 pt-8">
-      <div
-        class="aspect-auto rounded-lg bg-[url('Flag/Flag_of_Eswatini00.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:bg-transparent hover:shadow-lg hover:shadow-blue-800"
-      >
-        <div
-          class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
-        ></div>
-      </div>
-      <div
-        class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini10.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
-      >
-        <div
-          class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
-        ></div>
-      </div>
-      <div
-        class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini20.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
-      >
-        <div
-          class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
-        ></div>
-      </div>
-    </div>
-    <div class="grid grid-rows-3 gap-3 pb-12">
-      <div
-        class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini01.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
-      >
-        <div
-          class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
-        ></div>
-      </div>
-      <div
-        class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini11.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
-      >
-        <div
-          class="size-full rounded-lg bg-opacity-75 bg-cover bg-center transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
-        ></div>
-      </div>
-      <div
-        class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini21.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
-      >
-        <div
-          class="size-full rounded-lg bg-gradient-to-tr from-violet-100/80 to-violet-100/70 to-95% bg-cover bg-center backdrop-blur transition-colors duration-300 hover:backdrop-blur-none hover:bg-none"
-        ></div>
-      </div>
-    </div>
-    <div class="grid grid-rows-3 gap-3 pt-12">
-      <div
-        class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini02.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
-      >
-        <div
-          class="size-full rounded-lg bg-gradient-to-bl from-violet-100/80 to-violet-100/70 to-95% bg-cover bg-center backdrop-blur transition-colors duration-300 hover:backdrop-blur-none hover:bg-none"
-        ></div>
-      </div>
-      <div
-        class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini12.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
-      >
-        <div
-          class="size-full rounded-lg bg-opacity-80 bg-cover bg-center transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
-        ></div>
-      </div>
-      <div
-        class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini22.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
-      >
-        <div
-          class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
-        ></div>
-      </div>
-    </div>
-    <div class="grid grid-rows-3 gap-3 pb-8 pt-2">
-      <div
-        class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini03.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
-      >
-        <div
-          class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
-        ></div>
-      </div>
-      <div
-        class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini13.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
-      >
-        <div
-          class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
-        ></div>
-      </div>
-      <div
-        class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini23.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
-      >
-        <div
-          class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
-        ></div>
-      </div>
-    </div>
-  </div>
-  <section class="grid w-4/12 -translate-x-12 place-content-end pb-8">
-    <h1
-      class="pb-4 pl-4 text-center text-3xl font-extrabold tracking-tight text-white"
+    <div
+      class="mx-2 mt-16 grid select-none grid-cols-4 gap-2 rounded-lg bg-slate-800/5 bg-gradient-to-b from-slate-700/5 via-slate-500/5 px-4 py-4 sm:mx-auto sm:w-5/12 sm:gap-3 lg:mx-0"
     >
-      Discover and explore the culture of the Wonderful
-      <span
-        class="bg-violet-800 bg-gradient-to-bl from-blue-800 via-purple-800 bg-clip-text text-transparent selection:text-white"
-        >Kingdom of Eswatini.</span
+      <div class="grid grid-rows-3 gap-2 pt-8 sm:gap-3">
+        <div
+          class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini00.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:bg-transparent hover:shadow-lg hover:shadow-blue-800"
+        >
+          <div
+            class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
+          ></div>
+        </div>
+        <div
+          class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini10.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
+        >
+          <div
+            class="grid size-full place-items-center rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
+          >
+            <a
+              href="/places"
+              class="m-auto grid aspect-square size-full place-items-center rounded-lg ring-1 ring-inset ring-blue-400"
+              ><h1 class="size-fit sm:text-xl text-sky-600/80">Places</h1></a
+            >
+          </div>
+        </div>
+        <div
+          class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini20.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
+        >
+          <div
+            class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
+          ></div>
+        </div>
+      </div>
+      <div class="grid grid-rows-3 gap-2 pb-8 sm:gap-3">
+        <div
+          class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini01.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
+        >
+          <div
+            class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
+          >
+            <a
+              href="/interests"
+              class="grid aspect-square size-full place-items-end rounded-lg ring-1 ring-inset ring-blue-400"
+              ><h1 class="mx-auto mb-6 size-fit sm:text-xl text-slate-950">Interests</h1></a
+            >
+          </div>
+        </div>
+        <div
+          class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini11.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
+        >
+          <div
+            class="size-full rounded-lg bg-opacity-75 bg-cover bg-center transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
+          ></div>
+        </div>
+        <div
+          class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini21.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
+        >
+          <div
+            class="size-full rounded-lg bg-gradient-to-tr from-violet-100/80 to-violet-100/70 to-95% bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-none hover:backdrop-blur-none"
+          ></div>
+        </div>
+      </div>
+      <div class="grid grid-rows-3 gap-2 pt-8 sm:gap-3">
+        <div
+          class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini02.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
+        >
+          <div
+            class="size-full rounded-lg bg-gradient-to-bl from-violet-100/80 to-violet-100/70 to-95% bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-none hover:backdrop-blur-none"
+          >
+            <a
+              href="/articles"
+              class="m-auto grid aspect-square size-full place-items-center rounded-lg ring-1 ring-inset ring-blue-400"
+              ><h1 class="size-fit sm:text-xl text-sky-600/80">Articles</h1></a
+            >
+          </div>
+        </div>
+        <div
+          class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini12.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
+        >
+          <div
+            class="size-full rounded-lg bg-opacity-80 bg-cover bg-center transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
+          ></div>
+        </div>
+        <div
+          class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini22.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
+        >
+          <div
+            class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
+          ></div>
+        </div>
+      </div>
+      <div class="grid grid-rows-3 gap-2 pb-8 sm:gap-3">
+        <div
+          class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini03.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
+        >
+          <div
+            class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
+          ></div>
+        </div>
+        <div
+          class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini13.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
+        >
+          <div
+            class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
+          >
+            <a
+              href="/history"
+              class="m-auto grid aspect-square size-full place-items-center rounded-lg ring-1 ring-inset ring-blue-400"
+              ><h1 class="size-fit sm:text-xl text-sky-600/80">History</h1></a
+            >
+          </div>
+        </div>
+        <div
+          class="aspect-square rounded-lg bg-[url('Flag/Flag_of_Eswatini23.png')] bg-cover transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-800"
+        >
+          <div
+            class="size-full rounded-lg bg-violet-100 bg-opacity-80 bg-cover bg-center backdrop-blur transition-colors duration-300 hover:bg-transparent hover:backdrop-blur-none"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <section class="grid place-content-end pb-8 lg:w-4/12 lg:-translate-x-12">
+      <h1
+        class="pb-4 pl-4 text-center text-3xl font-extrabold tracking-tight text-white"
       >
-    </h1>
-  </section>
-</container>
+        Discover and explore the culture of the Wonderful
+        <span
+          class="bg-violet-800 bg-gradient-to-bl from-blue-800 via-purple-800 bg-clip-text text-transparent selection:text-white"
+          >Kingdom of Eswatini.</span
+        >
+      </h1>
+    </section>
+  </container>
+</div>
 
 <a href="#scenery"
   ><button
-    class="group absolute bottom-1 right-28 z-50 flex h-14 w-14 translate-x-1/2 cursor-pointer items-center justify-center rounded-full ring-1 ring-inset ring-slate-700/15 border-none bg-teal-900/20 shadow-md outline-none transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-teal-800/50 focus:scale-95 focus:bg-teal-600/60"
+    class="group absolute bottom-1 right-28 z-50 hidden h-14 w-14 translate-x-1/2 cursor-pointer items-center justify-center rounded-full border-none bg-teal-900/20 shadow-md outline-none ring-1 ring-inset ring-slate-700/15 transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-teal-800/50 focus:scale-95 focus:bg-teal-600/60 sm:flex"
     id="nav-toggle"
     type="button"
   >
@@ -172,7 +200,7 @@
 ></a>
 
 <nav
-  class="mb-8 ml-32 mr-4 flex flex-col rounded-lg bg-slate-800/5 bg-opacity-20 bg-gradient-to-b from-slate-700/5 via-slate-500/5"
+  class="mb-8 ml-1 mr-4 flex flex-col rounded-lg bg-slate-800/5 bg-opacity-20 bg-gradient-to-b from-slate-700/5 via-slate-500/5 sm:ml-32"
   id="scenery"
 >
   <a href="#scenery" class="grid justify-items-end">
@@ -182,7 +210,9 @@
       Scenery
     </h1>
   </a>
-  <div class="m-auto grid w-full grid-cols-4 gap-2 p-4 px-3 py-4">
+  <div
+    class="m-auto grid w-full grid-cols-1 gap-2 p-4 px-3 py-4 md:grid-cols-4"
+  >
     <div
       class="aspect-square rounded-lg bg-slate-500 bg-[url('Scenery/2017-01-07.jpg')] bg-cover shadow-md shadow-current transition-transform duration-300 hover:scale-105 hover:shadow-sm hover:shadow-current"
     ></div>
