@@ -46,18 +46,18 @@
           class="fixed left-0 top-0 flex h-screen w-64 flex-col justify-between rounded-lg bg-slate-800/5 pl-1 pr-2 backdrop-blur-lg"
         >
           <ul class="">
-            <div class="flex" id="company-logo">
+            <div class="ml-6 flex" id="company-logo">
               <a
                 class="grid h-12 w-12 items-center pt-6"
                 id="company-icon"
                 href="/"
               >
-                <img src="/assets/icon14.png" width="48" height="48" />
+                <img src="/assets/icon5.png" width="42" height="42" />
               </a>
               <a
-                class="font flex-col pl-4 pt-8 font-semibold text-blue-600"
+                class="font flex-col pl-2 pt-8 font-semibold text-slate-200"
                 href="/"
-                ><h1>hall<span class="text-blue-600">e</span></h1></a
+                ><h1>halle</h1></a
               >
               <p
                 class="mt-7 size-fit scale-75 rounded-3xl bg-slate-400 px-2 text-violet-900"
@@ -107,6 +107,21 @@
         </nav>
       </div>
 
+      <div class="fixed inset-0 z-50 backdrop-blur-sm lg:hidden">
+        <div class="fixed bg-slate-800">
+          <nav
+            id="sidebar-content"
+            class="fixed left-0 top-0 flex h-screen w-64 flex-col justify-between rounded-lg bg-slate-900/90 pl-1 pr-2 backdrop-blur-lg"
+          >
+            <ul class="">
+              <div class="h-12"></div>
+              <!-- Inheriting pages will have their sidebar rendered here, similar to app root in React, Angular, etc. -->
+              {% block sidebar2 %} {% endblock sidebar2 %}
+            </ul>
+          </nav>
+        </div>
+      </div>
+
       <main id="content" class="flex-auto scroll-smooth">
         <div
           class="sticky top-0 z-50 flex items-center justify-between border-b border-b-slate-800/30 bg-slate-900/95 pb-2 pt-6 font-semibold leading-6 text-slate-200 backdrop-blur-sm lg:relative lg:border-none print:hidden"
@@ -116,7 +131,7 @@
             <button
               id="menu-toggle"
               type="button"
-              class="ml-8 text-slate-500 hover:text-slate-600 lg:hidden dark:text-slate-400 dark:hover:text-slate-300"
+              class="ml-8 text-slate-500 hover:text-slate-600 lg:hidden dark:text-yellow-200 dark:hover:text-slate-300"
             >
               <span class="sr-only">Navigation</span
               ><svg width="24" height="24">
@@ -129,28 +144,15 @@
                 ></path>
               </svg>
             </button>
-            <button
-              id="search-bar-icon"
-              type="button"
-              class="-my-1 ml-8 flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-600 lg:hidden dark:text-slate-400 dark:hover:text-slate-300"
-            >
-              <span class="sr-only">Search</span
-              ><svg
-                width="24"
-                height="24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="m19 19-3.5-3.5"></path>
-                <circle cx="11" cy="11" r="6"></circle>
-              </svg>
-            </button>
+
+            <a
+              class="ml-8 flex size-full flex-row justify-items-center lg:hidden"
+              href="/"
+              ><img class="" src="/assets/icon5.png" width="34" height="34" />
+              <h1 class="ml-1">halle</h1>
+            </a>
             <div
-              class="ml-32 hidden w-96 rounded-sm bg-slate-100 font-normal lg:flex"
+              class="ml-32 hidden w-96 rounded-md bg-slate-200 font-normal lg:flex"
               id="search-bar"
             >
               <input
@@ -158,10 +160,10 @@
                 id="search"
                 name="search"
                 placeholder="Begin typing to search"
-                class="w-full rounded-sm border-none bg-slate-700 bg-transparent px-4 pl-2 text-gray-900 outline-none focus:outline-none"
+                class="w-full rounded-md border-none bg-slate-700 bg-transparent px-4 pl-2 text-gray-900 outline-none focus:outline-none"
               />
               <button
-                class="bg scale-95 rounded-sm bg-cyan-950 px-4 py-1 font-medium text-violet-100 hover:bg-teal-900 hover:bg-gradient-to-tr hover:from-teal-800"
+                class="scale-95 rounded-md bg-yellow-300 px-4 py-1 font-medium text-slate-700 hover:bg-yellow-600 hover:text-slate-200 focus:bg-gradient-to-tr active:from-yellow-500 active:via-yellow-600 active:to-yellow-500"
                 type="button"
                 hx-get="/api/hello"
                 hx-swap="innerHTML"
@@ -170,59 +172,85 @@
               </button>
             </div>
           </div>
-          <div class="-my-1 ml-2 mr-1 flex flex-row md:hidden">
-            {% block top_bar_page_custom %}{% endblock top_bar_page_custom %}
-            <button
-              type="button"
-              class="flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
-            >
-              <span class="sr-only">Navigation</span
-              ><svg width="24" height="24" fill="none" aria-hidden="true">
-                <path
-                  d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+          <div class="flex flex-row">
+            <div class="flex flex-row">
+              <button
+                id="search-bar-icon"
+                type="button"
+                class="-my-1 ml-8 mr-4 flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-600 lg:hidden dark:text-slate-300 dark:hover:text-slate-300"
+              >
+                <span class="sr-only">Search</span
+                ><svg
+                  width="24"
+                  height="24"
+                  fill="none"
                   stroke="currentColor"
-                  stroke-width="1.5"
+                  stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                ></path>
-              </svg>
-            </button>
-            <div
-              style="
-                position: fixed;
-                top: 1px;
-                left: 1px;
-                width: 1px;
-                height: 0px;
-                padding: 0px;
-                margin: -1px;
-                overflow: hidden;
-                clip: rect(0px, 0px, 0px, 0px);
-                white-space: nowrap;
-                border-width: 0px;
-                display: none;
-              "
-            ></div>
-          </div>
-          <div class="hidden items-center md:flex" id="right-side">
-            <nav>
-              <ul class="hidden items-center gap-x-8 pr-8 md:flex">
-                {% block top_bar_nav %}
-                <a
-                  href="/events"
-                  class="-mx-3 size-fit px-3 hover:rounded-3xl hover:bg-slate-200 hover:text-slate-800"
+                  aria-hidden="true"
                 >
-                  <span>Events</span>
-                </a>
-                <a
-                  href="/blog"
-                  class="-mx-3 size-fit px-3 hover:rounded-3xl hover:bg-slate-200 hover:text-slate-800"
+                  <path d="m19 19-3.5-3.5"></path>
+                  <circle cx="11" cy="11" r="6"></circle>
+                </svg>
+              </button>
+
+              <div class="-my-1 ml-2 mr-1 flex flex-row md:hidden">
+                {% block top_bar_page_custom %}{% endblock top_bar_page_custom
+                %}
+                <button
+                  type="button"
+                  class="flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-600 dark:text-yellow-200 dark:hover:text-slate-300"
                 >
-                  <span>Blog</span>
-                </a>
-                {% endblock top_bar_nav %}
-              </ul>
-            </nav>
+                  <span class="sr-only">Navigation</span
+                  ><svg width="24" height="24" fill="none" aria-hidden="true">
+                    <path
+                      d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  style="
+                    position: fixed;
+                    top: 1px;
+                    left: 1px;
+                    width: 1px;
+                    height: 0px;
+                    padding: 0px;
+                    margin: -1px;
+                    overflow: hidden;
+                    clip: rect(0px, 0px, 0px, 0px);
+                    white-space: nowrap;
+                    border-width: 0px;
+                    display: none;
+                  "
+                ></div>
+              </div>
+            </div>
+            <div class="hidden items-center md:flex" id="right-side">
+              <nav>
+                <ul class="hidden items-center gap-x-8 pr-8 md:flex">
+                  {% block top_bar_nav %}
+                  <a
+                    href="/events"
+                    class="-mx-3 size-fit px-3 text-slate-200 hover:rounded-3xl hover:bg-slate-200 hover:text-slate-800"
+                  >
+                    <span>Events</span>
+                  </a>
+                  <a
+                    href="/blog"
+                    class="-mx-3 size-fit px-3 text-slate-200 hover:rounded-3xl hover:bg-slate-200 hover:text-slate-800"
+                  >
+                    <span>Blog</span>
+                  </a>
+                  {% endblock top_bar_nav %}
+                </ul>
+              </nav>
+            </div>
           </div>
         </div>
 

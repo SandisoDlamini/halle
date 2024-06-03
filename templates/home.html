@@ -7,39 +7,78 @@
     <a
       aria-pressed="true"
       href="/"
-      class="my-1 mt-8 block flex-col justify-center rounded-sm border-l-4 px-2 py-3 pl-6 font-medium hover:text-slate-300 aria-pressed:border-slate-200 aria-pressed:text-slate-300 aria-pressed:hover:text-slate-300"
+      class="my-1 mt-8 block flex-col justify-center rounded-sm border-l-4 px-2 py-3 pl-6 font-medium hover:text-slate-300 aria-pressed:border-yellow-200 aria-pressed:text-slate-300 aria-pressed:hover:text-slate-200"
     >
       Home
     </a>
 
     <a
       href="/places"
-      class="my-1 block flex-col justify-center rounded-sm border-l-4 border-slate-600/90 px-2 py-3 pl-6 font-medium text-slate-400/90 transition-colors delay-0 duration-300 ease-in-out hover:border-slate-800/15 hover:bg-sky-600/20"
+      class="my-1 block flex-col justify-center rounded-sm border-l-4 border-slate-600/90 px-2 py-3 pl-6 font-medium text-slate-300/80 transition-colors delay-0 duration-200 ease-in-out hover:border-slate-800/15 hover:text-yellow-200 hover:bg-sky-600/20"
     >
       Places
     </a>
 
     <a
       href="/interests"
-      class="my-1 block flex-col justify-center rounded-sm border-l-4 border-slate-600/90 px-2 py-3 pl-6 font-medium text-slate-400/90 transition-colors delay-0 duration-300 ease-in-out hover:border-slate-800/15 hover:bg-sky-600/20"
+      class="my-1 block flex-col justify-center rounded-sm border-l-4 border-slate-600/90 px-2 py-3 pl-6 font-medium text-slate-300/80 transition-colors delay-0 duration-200 ease-in-out hover:border-slate-800/15 hover:text-yellow-200 hover:bg-sky-600/20"
     >
       Interests
     </a>
 
     <a
       href="/articles"
-      class="my-1 block flex-col justify-center rounded-sm border-l-4 border-slate-600/90 px-2 py-3 pl-6 font-medium text-slate-400/90 transition-colors delay-0 duration-300 ease-in-out hover:border-slate-800/15 hover:bg-sky-600/20"
+      class="my-1 block flex-col justify-center rounded-sm border-l-4 border-slate-600/90 px-2 py-3 pl-6 font-medium text-slate-300/80 transition-colors delay-0 duration-200 ease-in-out hover:border-slate-800/15 hover:text-yellow-200 hover:bg-sky-600/20"
     >
       Articles
     </a>
 
     <a
       href="/history"
-      class="my-1 block flex-col justify-center rounded-sm border-l-4 border-slate-600/90 px-2 py-3 pl-6 font-medium text-slate-400/90 transition-colors delay-0 duration-300 ease-in-out hover:border-slate-800/15 hover:bg-sky-600/20"
+      class="my-1 block flex-col justify-center rounded-sm border-l-4 border-slate-600/90 px-2 py-3 pl-6 font-medium text-slate-300/80 transition-colors delay-0 duration-200 ease-in-out hover:border-slate-800/15 hover:text-yellow-200 hover:bg-sky-600/20"
     >
       History
     </a>
 {% endblock sidebar %}
+
+{% block sidebar2 %}
+    <a
+      aria-pressed="true"
+      href="/"
+      class="my-1 mt-8 block flex-col justify-center rounded-sm border-l-4 px-2 py-3 pl-6 font-medium hover:text-slate-300 aria-pressed:border-yellow-200 aria-pressed:text-slate-300 aria-pressed:hover:text-slate-200"
+    >
+      Home
+    </a>
+
+    <a
+      href="/places"
+      class="my-1 block flex-col justify-center rounded-sm border-l-4 border-slate-600/90 px-2 py-3 pl-6 font-medium text-slate-300/80 transition-colors delay-0 duration-200 ease-in-out hover:border-slate-800/15 hover:text-yellow-200 hover:bg-sky-600/20"
+    >
+      Places
+    </a>
+
+    <a
+      href="/interests"
+      class="my-1 block flex-col justify-center rounded-sm border-l-4 border-slate-600/90 px-2 py-3 pl-6 font-medium text-slate-300/80 transition-colors delay-0 duration-200 ease-in-out hover:border-slate-800/15 hover:text-yellow-200 hover:bg-sky-600/20"
+    >
+      Interests
+    </a>
+
+    <a
+      href="/articles"
+      class="my-1 block flex-col justify-center rounded-sm border-l-4 border-slate-600/90 px-2 py-3 pl-6 font-medium text-slate-300/80 transition-colors delay-0 duration-200 ease-in-out hover:border-slate-800/15 hover:text-yellow-200 hover:bg-sky-600/20"
+    >
+      Articles
+    </a>
+
+    <a
+      href="/history"
+      class="my-1 block flex-col justify-center rounded-sm border-l-4 border-slate-600/90 px-2 py-3 pl-6 font-medium text-slate-300/80 transition-colors delay-0 duration-200 ease-in-out hover:border-slate-800/15 hover:text-yellow-200 hover:bg-sky-600/20"
+    >
+      History
+    </a>
+{% endblock sidebar2 %}
+
 
 {% block content %}
 <div class="grid h-screen place-items-center" id="landing">
@@ -65,7 +104,7 @@
           >
             <a
               href="/places"
-              class="animate-pulse-slow group grid aspect-square size-full place-items-end rounded-lg sm:max-md:hidden lg:hidden"
+              class="animate-pulse-slow group grid aspect-square ring-2 ring-inset ring-sky-800 size-full place-items-end rounded-lg sm:max-md:hidden lg:hidden"
               ><h1
                 class="mx-auto mb-6 size-fit border-b-2 border-b-sky-800 bg-sky-800 bg-gradient-to-bl from-blue-800 via-sky-800 bg-clip-text text-transparent selection:text-white"
               >
@@ -91,7 +130,7 @@
           >
             <a
               href="/interests"
-              class="animate-pulse-slow group grid aspect-square size-full place-items-end rounded-lg sm:max-md:hidden lg:hidden"
+              class="animate-pulse-slow group grid aspect-square ring-2 ring-inset ring-sky-800 size-full place-items-end rounded-lg sm:max-md:hidden lg:hidden"
               ><h1
                 class="mx-auto mb-6 size-fit border-b-2 border-b-sky-800 bg-sky-800 bg-gradient-to-bl from-blue-800 via-sky-800 bg-clip-text text-transparent selection:text-white"
               >
@@ -124,7 +163,7 @@
           >
             <a
               href="/articles"
-              class="animate-pulse-slow group grid aspect-square size-full place-items-end rounded-lg sm:max-md:hidden lg:hidden"
+              class="animate-pulse-slow group grid aspect-square ring-2 ring-inset ring-sky-800 size-full place-items-end rounded-lg sm:max-md:hidden lg:hidden"
               ><h1
                 class="mx-auto mb-6 size-fit border-b-2 border-b-sky-800 bg-sky-800 bg-gradient-to-bl from-blue-800 via-sky-800 bg-clip-text text-transparent selection:text-white"
               >
@@ -164,7 +203,7 @@
           >
             <a
               href="/history"
-              class="animate-pulse-slow group grid aspect-square size-full place-items-end rounded-lg sm:max-md:hidden lg:hidden"
+              class="animate-pulse-slow group grid aspect-square ring-2 ring-inset ring-sky-800 size-full place-items-end rounded-lg sm:max-md:hidden lg:hidden"
               ><h1
                 class="mx-auto mb-6 size-fit border-b-2 border-b-sky-800 bg-sky-800 bg-gradient-to-bl from-blue-800 via-sky-800 bg-clip-text text-transparent selection:text-white"
               >
@@ -184,7 +223,7 @@
     </div>
     <section class="grid place-content-end pb-8 lg:w-4/12 lg:-translate-x-12">
       <h1
-        class="pb-4 pl-4 text-center text-3xl font-extrabold tracking-tight text-white"
+        class="pb-4 pl-4 text-center text-3xl font-extrabold tracking-tight text-yellow-200"
       >
         Discover and explore the culture of the Wonderful
         <span
