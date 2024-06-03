@@ -1,11 +1,4 @@
-{% extends "base.html" %}
-<!-- prettier-ignore -->
-
-{% block title %}article1 - halle{% endblock title %}
-
-{% block content %}
-<div class="flex aspect-auto size-full flex-row gap-4" id="">
-  <article
+<article
     class="mb-2 sm:ml-6 mt-2 aspect-auto w-full md:w-8/12 print:w-full print:m-auto rounded-md px-2 sm:px-1 text-slate-300 tracking-wide font-medium"
     id=""
   >
@@ -95,79 +88,4 @@
       ``` 1 2 3 4 5 ``` This is how you can print the output of a vector in
       Rust.</p>
   </article>
-  
-  <div
-  class="mr-1 mt-2 hidden aspect-auto h-96 w-72 md:block lg:ml-4 print:hidden"
-  id=""
-  >
-    <div class="fixed h-96 w-72 rounded-lg backdrop-blur">
-      <div class="ml-8 px-8">
-        <ul class="text-sm leading-6 text-slate-700">
-          <li>
-            <a
-              href="#basic-usage"
-              class="block py-1 font-medium hover:text-slate-900 hover:underline dark:text-slate-400 dark:hover:text-slate-300"
-              >Introduction</a
-            >
-          </li>
-          <li>
-            <a
-              href="#basic-usage"
-              class="ml-2 block py-1 font-medium hover:text-slate-900 hover:underline dark:text-slate-400 dark:hover:text-slate-300"
-              >Subheading 1</a
-            >
-          </li>
-          <li>
-            <a
-              href="#basic-usage"
-              class="ml-2 block py-1 font-medium hover:text-slate-900 hover:underline dark:text-slate-400 dark:hover:text-slate-300"
-              >Subheading 2</a
-            >
-          </li>
-          <li>
-            <a
-              href="#basic-usage"
-              class="ml-2 block py-1 font-medium hover:text-slate-900 hover:underline dark:text-slate-400 dark:hover:text-slate-300"
-              >Subheading 3</a
-            >
-          </li>
-          <li>
-            <a
-              href="#basic-usage"
-              class="ml-2 block py-1 font-medium hover:text-slate-900 hover:underline dark:text-slate-400 dark:hover:text-slate-300"
-              >Subheading 4</a
-            >
-          </li>
-          <li>
-            <a
-              href="#basic-usage"
-              class="block py-1 font-medium hover:text-slate-900 hover:underline dark:text-slate-400 dark:hover:text-slate-300"
-              >Conclusion</a
-            >
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-{% endblock content %}
 
-{% block top_bar_page_custom %}
-<button
-  id="toc-toggle"
-  type="button"
-  class="mr-2 px-2 rounded-3xl bg-slate-600 text-slate-500 hover:text-slate-600 md:hidden dark:text-slate-400 dark:hover:text-slate-300"
->
-  <span class="sr-only">Navigation</span
-  ><svg width="24" height="24">
-    <path
-      d="M4 6h14M8 12h14M4 18h14"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-    ></path>
-  </svg>
-</button>
-
-{% endblock top_bar_page_custom %}

@@ -114,6 +114,7 @@
         >
           <div class="flex flex-row" id="left-side">
             <button
+              id="menu-toggle"
               type="button"
               class="ml-8 text-slate-500 hover:text-slate-600 lg:hidden dark:text-slate-400 dark:hover:text-slate-300"
             >
@@ -129,6 +130,7 @@
               </svg>
             </button>
             <button
+              id="search-bar-icon"
               type="button"
               class="-my-1 ml-8 flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-600 lg:hidden dark:text-slate-400 dark:hover:text-slate-300"
             >
@@ -168,7 +170,8 @@
               </button>
             </div>
           </div>
-          <div class="-my-1 ml-2 mr-1 md:hidden">
+          <div class="-my-1 ml-2 mr-1 flex flex-row md:hidden">
+            {% block top_bar_page_custom %}{% endblock top_bar_page_custom %}
             <button
               type="button"
               class="flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
