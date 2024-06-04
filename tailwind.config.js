@@ -9,6 +9,24 @@ module.exports = {
       animation: {
         "bounce-slow": "bounce 8s infinite",
         "pulse-slow": "pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "slideshow-fast": "fade 20s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "slideshow-medium": "fade 24s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      },
+      keyframes: {
+        fade: {
+          "0%": {
+            opacity: 0,
+          },
+          "25%": {
+            opacity: 1,
+          },
+          "50%": {
+            opacity: 0,
+          },
+          "100%": {
+            opacity: 0,
+          },
+        },
       },
     },
   },
