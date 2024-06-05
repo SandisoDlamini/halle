@@ -179,7 +179,7 @@
       <div
         x-show="open"
         id="popup-searchbar"
-        class="fixed right-1/2 top-16 z-50 grid h-16 w-80 translate-x-1/2 place-items-center rounded-lg backdrop-blur-sm sm:w-[32rem] lg:hidden"
+        class="fixed right-1/2 top-16 z-50 hidden h-16 w-80 translate-x-1/2 place-items-center rounded-lg backdrop-blur-sm sm:w-[32rem] lg:hidden 2xl:grid"
       >
         <div class="fixed mx-3 flex w-full flex-row rounded-lg bg-slate-800">
           <button
@@ -322,7 +322,7 @@
                 class="w-full rounded-md border-none bg-slate-700 bg-transparent px-4 pl-2 text-gray-900 outline-none focus:outline-none"
               />
               <button
-                class="scale-95 rounded-md bg-yellow-400/85 px-4 py-1 font-medium text-slate-800 hover:bg-yellow-600 hover:text-slate-200 focus:bg-gradient-to-tr active:from-yellow-500 active:via-yellow-600 active:to-yellow-500"
+                class="scale-95 rounded-md bg-yellow-400/85 px-4 py-1 font-medium text-slate-900 hover:bg-yellow-600 hover:text-slate-200 focus:bg-gradient-to-tr active:from-yellow-500 active:via-yellow-600 active:to-yellow-500"
                 type="button"
                 hx-get="/api/hello"
                 hx-swap="innerHTML"
