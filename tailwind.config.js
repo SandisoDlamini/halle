@@ -10,15 +10,22 @@ module.exports = {
         "bounce-slow": "bounce 8s infinite",
         "pulse-slow": "pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "slideshow-fast": "fade 20s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "slideshow-medium": "fade 24s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "slideshow-medium": "fade 24s ease-in-out infinite",
+        "background-pan": "background-pan 6s linear infinite",
+        movie: "movie 20s linear infinite",
       },
       keyframes: {
         fade: {
           "0%": {
             opacity: 0,
+            filter: "blur(1px)",
           },
           "25%": {
             opacity: 1,
+            filter: "blur(0px)",
+          },
+          "45%": {
+            opacity: 0,
           },
           "50%": {
             opacity: 0,
@@ -27,6 +34,63 @@ module.exports = {
             opacity: 0,
           },
         },
+        "background-pan": {
+          from: {
+            backgroundPosition: 0,
+          },
+          to: {
+            backgroundPosition: -100,
+          },
+        },
+        movie: {
+          "0%": {
+            backgroundPosition: "35% 42%",
+            backgroundSize: "200%",
+          },
+          "20%": {
+            backgroundPosition: "60% 57%",
+            backgroundSize: "200%",
+          },
+          "20.0001%": {
+            backgroundPosition: "60% 85%",
+            backgroundSize: "500%",
+          },
+          "40%": {
+            backgroundPosition: "49% 81%",
+            backgroundSize: "500%",
+          },
+          "40.0001%": {
+            backgroundPosition: "80% 42%",
+            backgroundSize: "300%",
+          },
+          "60%": {
+            backgroundPosition: "84% 33%",
+            backgroundSize: "300%",
+          },
+          "60.0001%": {
+            backgroundPosition: "0% 0%",
+            backgroundSize: "300%",
+          },
+          "80%": {
+            backgroundPosition: "15% 4%",
+            backgroundSize: "300%",
+          },
+          "80.0001%": {
+            backgroundPosition: "89% 7%",
+            backgroundSize: "300%",
+          },
+          "100%": {
+            backgroundPosition: "71% 25%",
+            backgroundSize: "300%",
+          },
+        },
+      },
+      backgroundSize: {
+        auto: "auto",
+        cover: "cover",
+        contain: "contain",
+        "50%": "50%",
+        "200%": "200%",
       },
     },
   },

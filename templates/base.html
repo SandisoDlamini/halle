@@ -135,9 +135,101 @@
                 </svg>
               </button>
               <!-- Inheriting pages will have their sidebar rendered here, similar to app root in React, Angular, etc. -->
-              {% block sidebar2 %} {% endblock sidebar2 %}
+              {% block sidebar2 %}
+              <a
+                href="/"
+                class="my-1 mt-8 block flex-col justify-center rounded-sm border-l-4 border-gray-500 px-2 py-3 pl-6 font-medium text-slate-400/90 transition-colors delay-0 duration-300 ease-in-out hover:border-sky-700 hover:bg-sky-600 hover:bg-gradient-to-r hover:from-sky-700 hover:text-slate-300"
+              >
+                Home
+              </a>
+
+              <a
+                href="/places"
+                class="my-1 block flex-col justify-center rounded-sm border-l-4 border-gray-500 px-2 py-3 pl-6 font-medium text-slate-400/90 transition-colors delay-0 duration-300 ease-in-out hover:border-sky-700 hover:bg-sky-600 hover:bg-gradient-to-r hover:from-sky-700 hover:text-slate-300"
+              >
+                Places
+              </a>
+
+              <a
+                href="/interests"
+                class="my-1 block flex-col justify-center rounded-sm border-l-4 border-gray-500 px-2 py-3 pl-6 font-medium text-slate-400/90 transition-colors delay-0 duration-300 ease-in-out hover:border-sky-700 hover:bg-sky-600 hover:bg-gradient-to-r hover:from-sky-700 hover:text-slate-300"
+              >
+                Interests
+              </a>
+
+              <a
+                href="/articles"
+                class="my-1 block flex-col justify-center rounded-sm border-l-4 border-gray-500 px-2 py-3 pl-6 font-medium text-slate-400/90 transition-colors delay-0 duration-300 ease-in-out hover:border-sky-700 hover:bg-sky-600 hover:bg-gradient-to-r hover:from-sky-700 hover:text-slate-300"
+              >
+                Articles
+              </a>
+
+              <a
+                href="/history"
+                class="my-1 block flex-col justify-center rounded-sm border-l-4 border-gray-500 px-2 py-3 pl-6 font-medium text-slate-400/90 transition-colors delay-0 duration-300 ease-in-out hover:border-sky-700 hover:bg-sky-700 hover:bg-gradient-to-r hover:from-sky-700 hover:text-slate-300"
+              >
+                History
+              </a>
+              {% endblock sidebar2 %}
             </ul>
           </nav>
+        </div>
+      </div>
+
+      <div
+        x-show="open"
+        id="popup-searchbar"
+        class="fixed right-1/2 top-16 z-50 grid h-16 w-80 translate-x-1/2 place-items-center rounded-lg backdrop-blur-sm sm:w-[32rem] lg:hidden"
+      >
+        <div class="fixed mx-3 flex w-full flex-row rounded-lg bg-slate-800">
+          <button
+            type="button"
+            class="absolute right-1 top-3 z-50 flex h-7 w-7 items-center justify-center rounded-2xl px-5 text-slate-500 ring-2 ring-inset ring-slate-600 hover:text-slate-600 hover:ring-slate-500 dark:text-slate-600 dark:hover:text-slate-500"
+          >
+            <span class="sr-only">Close navigation</span
+            ><svg viewBox="0 0 10 10" class="h-2.5 w-2.5 overflow-visible">
+              <path
+                d="M0 0L10 10M10 0L0 10"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              ></path>
+            </svg>
+          </button>
+          <div class="grid place-items-center">
+            <div
+              class="flex h-14 w-80 rounded-md bg-slate-800 font-normal sm:w-[31rem]"
+            >
+              <input
+                type="search"
+                id="search"
+                name="search"
+                placeholder="Begin typing to search"
+                class="w-full rounded-md border-none bg-slate-700 bg-transparent pl-1 text-slate-200 outline-none focus:outline-none"
+              />
+              <button
+                id="search-bar-icon"
+                type="button"
+                class="-my-1 ml-8 mr-14 flex items-center justify-center text-slate-500 hover:text-slate-600 lg:hidden dark:text-slate-400 dark:hover:text-slate-300"
+              >
+                <span class="sr-only">Search</span
+                ><svg
+                  width="24"
+                  height="24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m19 19-3.5-3.5"></path>
+                  <circle cx="11" cy="11" r="6"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -188,7 +280,7 @@
         </div>
       </div>
 
-      <main id="content" class="flex-auto scroll-smooth">
+      <main id="content" class="flex-auto">
         <div
           class="sticky top-0 z-50 flex items-center justify-between border-b border-b-slate-800/30 bg-slate-900/95 pb-2 pt-6 font-semibold leading-6 text-slate-200 backdrop-blur-sm lg:relative lg:border-none print:hidden"
           id="top-bar"
@@ -219,7 +311,7 @@
               <h1 class="ml-1">halle</h1>
             </a>
             <div
-              class="ml-32 hidden w-96 rounded-md bg-slate-200 font-normal lg:flex"
+              class="ml-32 hidden w-96 rounded-md bg-slate-300 font-normal lg:flex"
               id="search-bar"
             >
               <input
@@ -230,7 +322,7 @@
                 class="w-full rounded-md border-none bg-slate-700 bg-transparent px-4 pl-2 text-gray-900 outline-none focus:outline-none"
               />
               <button
-                class="scale-95 rounded-md bg-yellow-300 px-4 py-1 font-medium text-slate-700 hover:bg-yellow-600 hover:text-slate-200 focus:bg-gradient-to-tr active:from-yellow-500 active:via-yellow-600 active:to-yellow-500"
+                class="scale-95 rounded-md bg-yellow-400/85 px-4 py-1 font-medium text-slate-800 hover:bg-yellow-600 hover:text-slate-200 focus:bg-gradient-to-tr active:from-yellow-500 active:via-yellow-600 active:to-yellow-500"
                 type="button"
                 hx-get="/api/hello"
                 hx-swap="innerHTML"
