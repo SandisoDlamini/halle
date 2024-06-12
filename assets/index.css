@@ -25,15 +25,15 @@
     animation-delay: -2s;
   }
   .animation-delay-i1 {
-    animation-delay: calc(16s / 4 * (4 - 1) * -1);
+    animation-delay: calc(18s / 4 * (4 - 1) * -1);
   }
   .animation-delay-i2 {
-    animation-delay: calc(16s / 4 * (4 - 2) * -1);
+    animation-delay: calc(18s / 4 * (4 - 2) * -1);
   }
   .animation-delay-i3 {
-    animation-delay: calc(16s / 4 * (4 - 3) * -1);
+    animation-delay: calc(18s / 4 * (4 - 3) * -1);
   }
   .animation-delay-i4 {
-    animation-delay: calc(16s / 4 * (4 - 4) * -1);
+    animation-delay: calc(18s / 4 * (4 - 4) * -1);
   }
 }

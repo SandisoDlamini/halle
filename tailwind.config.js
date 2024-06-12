@@ -13,7 +13,7 @@ export const theme = {
       "background-pan": "background-pan 6s linear infinite",
       movie: "movie 20s linear infinite",
       slide: "slide 4s linear infinite",
-      "scroll-left": "scroll-left 16s linear infinite",
+      "scroll-left": "scroll-left 18s linear infinite",
     },
     keyframes: {
       fade: {

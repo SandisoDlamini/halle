@@ -210,12 +210,13 @@
             </button>
             <div class="grid place-items-center">
               <form
+                hx-boost="none"
                 class="flex h-14 w-80 rounded-md bg-slate-800 font-normal sm:w-[31rem]"
               >
                 <input
                   type="search"
                   id="popup-search"
-                  name="popup-search"
+                  name="search"
                   enterkeyhint="search"
                   maxlength="64"
                   placeholder="Begin typing to search"
@@ -345,7 +346,7 @@
                 class="w-full rounded-md border-none bg-slate-700 bg-transparent px-4 pl-2 text-gray-900 outline-none focus:outline-none"
               />
               <button
-                class="scale-95 rounded-md bg-yellow-400/85 px-4 py-1 font-medium text-slate-900 hover:bg-yellow-600 hover:text-slate-200 focus:bg-gradient-to-tr active:from-yellow-500 active:via-yellow-600 active:to-yellow-500"
+                class="scale-95 rounded-md bg-blue-950 px-4 py-1 font-medium text-yellow-50 hover:bg-yellow-600 hover:text-slate-200 focus:bg-gradient-to-tr active:from-yellow-500 active:via-yellow-600 active:to-yellow-500"
                 type="button"
                 hx-get="/api/hello"
                 hx-target="#search-input"
