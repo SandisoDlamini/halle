@@ -5,9 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script
+      defer
       src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
     ></script>
     <script src="/assets/htmx.min.js"></script>
+    <script>
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      // Whenever the user explicitly chooses light mode
+      localStorage.theme = "light";
+
+      // Whenever the user explicitly chooses dark mode
+      localStorage.theme = "dark";
+
+      // Whenever the user explicitly chooses to respect the OS preference
+      localStorage.removeItem("theme");
+    </script>
+
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("theme", () => ({
+          toggle() {
+            document.documentElement.classList.toggle("dark");
+          },
+        }));
+      });
+    </script>
+
     <link rel="stylesheet" href="/assets/tailwind.css" />
     <link
       rel="apple-touch-icon"
@@ -35,12 +74,16 @@
     {% block head %}{% endblock head %}
   </head>
 
-  <body hx-boost="true" class="bg-slate-900 antialiased selection:bg-slate-500">
+  <body
+    x-data="theme"
+    hx-boost="true"
+    class="bg-slate-50 antialiased selection:bg-slate-500 dark:bg-slate-900"
+  >
     <div
       x-data="{
-      open: false,
-      open2: false,
-      open3:false,
+      open_sidebar: false,
+      open_hamburger_menu: false,
+      open_search_modal:false,
       }"
       id="page"
       class="flex"
@@ -51,7 +94,7 @@
       >
         <nav
           id="sidebar-content"
-          class="fixed left-0 top-0 flex h-screen w-64 flex-col justify-between rounded-lg bg-slate-800/5 pl-1 pr-2 backdrop-blur-lg"
+          class="fixed left-0 top-0 flex h-screen w-64 flex-col justify-between rounded-lg bg-slate-100/45 pl-1 pr-2 backdrop-blur-lg dark:bg-slate-800/5"
         >
           <ul class="">
             <div class="ml-6 flex" id="company-logo">
@@ -110,20 +153,20 @@
         </nav>
       </div>
 
-      <div x-show="open" @keyup.escape.window="open = false">
+      <div x-show="open_sidebar" @keyup.escape.window="open_sidebar = false">
         <div
           id="popup-sidebar"
           class="fixed inset-0 z-50 backdrop-blur-sm lg:hidden"
         >
-          <div class="fixed bg-slate-800">
+          <div class="fixed bg-slate-50 dark:bg-slate-800">
             <nav
               id="sidebar-content"
-              class="fixed left-0 top-0 flex h-screen w-64 flex-col justify-between rounded-lg bg-slate-900/90 pl-1 pr-2 backdrop-blur-lg"
+              class="fixed left-0 top-0 flex h-screen w-64 flex-col justify-between rounded-lg bg-slate-100/90 pl-1 pr-2 backdrop-blur-lg dark:bg-slate-900/90"
             >
               <ul class="">
                 <div class="h-16"></div>
                 <button
-                  @click="open = false"
+                  @click="open_sidebar = false"
                   type="button"
                   class="absolute right-5 z-50 flex h-7 w-7 items-center justify-center rounded-2xl px-5 text-slate-500 ring-2 ring-inset ring-slate-600 hover:text-slate-600 hover:ring-slate-500 dark:text-slate-600 dark:hover:text-slate-500"
                 >
@@ -184,7 +227,10 @@
         </div>
       </div>
 
-      <div x-show="open3" @keyup.escape.window="open3 = false">
+      <div
+        x-show="open_search_modal"
+        @keyup.escape.window="open_search_modal = false"
+      >
         <div
           id="popup-searchbar"
           class="fixed right-1/2 top-16 z-50 aspect-auto h-16 w-80 translate-x-1/2 place-items-center rounded-lg sm:w-[32rem] lg:hidden 2xl:grid"
@@ -193,7 +239,7 @@
             class="fixed mx-auto flex w-full flex-row rounded-lg bg-slate-800"
           >
             <button
-              @click="open3 = false"
+              @click="open_search_modal = false"
               type="reset"
               class="absolute right-1 top-3 z-50 flex h-7 w-7 items-center justify-center rounded-2xl px-5 text-slate-500 ring-2 ring-inset ring-slate-600 hover:text-slate-600 hover:ring-slate-500 dark:text-slate-600 dark:hover:text-slate-500"
             >
@@ -252,9 +298,14 @@
         </div>
       </div>
 
-      <div x-show="open2" @keyup.escape.window="open2 = false">
+      <div
+        x-show="open_hamburger_menu"
+        @keyup.escape.window="open_hamburger_menu = false"
+      >
         <div
           id="hamburger_menu"
+          role="dialog"
+          aria-modal="true"
           class="fixed inset-0 z-50 backdrop-blur-sm lg:hidden"
         >
           <div class="fixed bg-slate-800">
@@ -265,7 +316,7 @@
               <ul class="space-y-6 text-2xl font-extrabold">
                 <div class="h-16"></div>
                 <button
-                  @click="open2 = false"
+                  @click="open_hamburger_menu = false"
                   type="button"
                   class="absolute right-5 z-50 flex h-7 w-7 items-center justify-center rounded-2xl px-5 text-slate-500 ring-2 ring-inset ring-slate-600 hover:text-slate-600 hover:ring-slate-500 dark:text-slate-600 dark:hover:text-slate-500"
                 >
@@ -306,12 +357,12 @@
 
       <main id="content" class="flex-auto">
         <div
-          class="sticky top-0 z-50 flex items-center justify-between border-b border-b-slate-800/30 bg-slate-900/95 pb-2 pt-6 font-semibold leading-6 text-slate-200 backdrop-blur-sm lg:relative lg:border-none print:hidden"
+          class="sticky top-0 z-50 flex items-center justify-between border-b border-b-slate-800/30 bg-slate-50/95 pb-2 pt-6 font-semibold leading-6 text-slate-200 backdrop-blur-sm lg:relative lg:border-none dark:bg-slate-900/95 print:hidden"
           id="top-bar"
         >
           <div class="flex flex-row" id="left-side">
             <button
-              @click="open = ! open"
+              @click="open_sidebar = ! open_sidebar; open_hamburger_menu = false; open_search_modal = false"
               id="menu-toggle"
               type="button"
               class="ml-8 text-slate-500 hover:text-slate-600 lg:hidden dark:text-yellow-200 dark:hover:text-slate-300"
@@ -331,11 +382,22 @@
             <a
               class="ml-8 flex size-full flex-row justify-items-center lg:hidden"
               href="/"
-              ><img class="" src="/assets/icon5.png" width="34" height="34" />
-              <h1 class="ml-1">halle</h1>
+              ><img
+                class="hidden dark:block"
+                src="/assets/icon5.png"
+                width="34"
+                height="34"
+              />
+              <img
+                class="block dark:hidden"
+                src="/assets/icon6.png"
+                width="34"
+                height="34"
+              />
+              <h1 class="ml-1 text-slate-900 dark:text-slate-200">halle</h1>
             </a>
             <div
-              class="ml-32 hidden w-96 rounded-md bg-slate-300 font-normal lg:flex"
+              class="ml-32 hidden h-8 w-96 rounded-md bg-slate-300 font-normal lg:flex"
               id="search-bar"
             >
               <input
@@ -346,7 +408,7 @@
                 class="w-full rounded-md border-none bg-slate-700 bg-transparent px-4 pl-2 text-gray-900 outline-none focus:outline-none"
               />
               <button
-                class="scale-95 rounded-md bg-blue-950 px-4 py-1 font-medium text-yellow-50 hover:bg-yellow-600 hover:text-slate-200 focus:bg-gradient-to-tr active:from-yellow-500 active:via-yellow-600 active:to-yellow-500"
+                class="m-auto my-px mr-px rounded-md bg-blue-950 px-2 font-medium text-yellow-50 hover:bg-blue-900 hover:text-slate-200 active:bg-gradient-to-tr active:from-blue-700 active:via-blue-600 active:to-blue-700"
                 type="button"
                 hx-get="/api/hello"
                 hx-target="#search-input"
@@ -358,8 +420,48 @@
           </div>
           <div class="flex flex-row">
             <div class="flex flex-row">
+              <button type="button" @click="toggle" class="mr-4">
+                <span class="">
+                  <svg
+                    class="block text-slate-600 dark:hidden"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#a)" fill="currentColor">
+                      <path
+                        d="M12 0a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V1a1 1 0 0 1 1-1ZM4.929 3.515a1 1 0 0 0-1.414 1.414l2.828 2.828a1 1 0 0 0 1.414-1.414L4.93 3.515ZM1 11a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2H1ZM18 12a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2h-4a1 1 0 0 1-1-1ZM17.657 16.243a1 1 0 0 0-1.414 1.414l2.828 2.828a1 1 0 1 0 1.414-1.414l-2.828-2.828ZM7.757 17.657a1 1 0 1 0-1.414-1.414L3.515 19.07a1 1 0 1 0 1.414 1.414l2.828-2.828ZM20.485 4.929a1 1 0 0 0-1.414-1.414l-2.828 2.828a1 1 0 1 0 1.414 1.414l2.828-2.828ZM13 19a1 1 0 1 0-2 0v4a1 1 0 1 0 2 0v-4ZM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Z"
+                      />
+                    </g>
+
+                    <defs>
+                      <clipPath id="a">
+                        <path fill="currentColor" d="M0 0h24v24H0z" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </span>
+                <span>
+                  <svg
+                    class="hidden text-sky-200 dark:block"
+                    fill="currentColor"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 35 35"
+                    data-name="Layer 2"
+                    id="Layer_2"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M18.44,34.68a18.22,18.22,0,0,1-2.94-.24,18.18,18.18,0,0,1-15-20.86A18.06,18.06,0,0,1,9.59.63,2.42,2.42,0,0,1,12.2.79a2.39,2.39,0,0,1,1,2.41L11.9,3.1l1.23.22A15.66,15.66,0,0,0,23.34,21h0a15.82,15.82,0,0,0,8.47.53A2.44,2.44,0,0,1,34.47,25,18.18,18.18,0,0,1,18.44,34.68ZM10.67,2.89a15.67,15.67,0,0,0-5,22.77A15.66,15.66,0,0,0,32.18,24a18.49,18.49,0,0,1-9.65-.64A18.18,18.18,0,0,1,10.67,2.89Z"
+                    />
+                  </svg>
+                </span>
+              </button>
               <button
-                @click="open3 = ! open3"
+                @click="open_search_modal = ! open_search_modal; open_sidebar = false; open_hamburger_menu = false"
                 type="button"
                 class="-my-1 ml-auto flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-600 sm:mr-6 lg:hidden dark:text-yellow-50 dark:hover:text-slate-300"
               >
@@ -383,7 +485,7 @@
                 {% block top_bar_page_custom %}{% endblock top_bar_page_custom
                 %}
                 <button
-                  @click="open2 = ! open2"
+                  @click="open_hamburger_menu = ! open_hamburger_menu; open_sidebar = false; open_search_modal = false"
                   type="button"
                   class="flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-600 dark:text-yellow-200 dark:hover:text-slate-300"
                 >
