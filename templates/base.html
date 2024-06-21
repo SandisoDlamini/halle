@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       defer
-      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
-    ></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"
     ></script>
     <script
       defer
@@ -168,7 +164,14 @@
         </nav>
       </div>
 
-      <div x-show="open_sidebar" @keyup.escape.window="open_sidebar = false">
+      <div
+        x-cloak
+        x-show="open_sidebar"
+        @keyup.escape.window="open_sidebar = false"
+        x-trap.noscroll="open_sidebar"
+        @keydown.down="$focus.wrap().next()"
+        @keydown.up="$focus.wrap().previous()"
+      >
         <div
           id="popup-sidebar"
           class="fixed inset-0 z-50 backdrop-blur-sm lg:hidden"
@@ -243,6 +246,7 @@
       </div>
 
       <div
+        x-cloak
         x-show="open_search_modal"
         @keyup.escape.window="open_search_modal = false"
       >
@@ -271,6 +275,7 @@
             </button>
             <div class="grid place-items-center">
               <form
+                x-trap.noreturn="open_search_modal"
                 hx-boost="none"
                 class="flex h-14 w-80 rounded-md bg-slate-200 font-normal sm:w-[31rem] dark:bg-slate-800"
               >
@@ -314,8 +319,12 @@
       </div>
 
       <div
+        x-cloak
         x-show="open_hamburger_menu"
         @keyup.escape.window="open_hamburger_menu = false"
+        x-trap.noscroll="open_hamburger_menu"
+        @keydown.down="$focus.wrap().next()"
+        @keydown.up="$focus.wrap().previous()"
       >
         <div
           id="hamburger_menu"
@@ -353,13 +362,13 @@
                 {% block hamburger_menu %}
                 <a
                   href="/events"
-                  class="block size-fit px-3 text-slate-200 hover:rounded-3xl hover:bg-slate-200 hover:text-slate-800"
+                  class="block size-fit px-3 text-slate-800 hover:rounded-3xl hover:bg-slate-200 hover:text-slate-800 dark:text-slate-200"
                 >
                   <span>Events</span>
                 </a>
                 <a
                   href="/blog"
-                  class="block size-fit px-3 text-slate-200 hover:rounded-3xl hover:bg-slate-200 hover:text-slate-800"
+                  class="block size-fit px-3 text-slate-800 hover:rounded-3xl hover:bg-slate-200 hover:text-slate-800 dark:text-slate-200"
                 >
                   <span>Blog</span>
                 </a>
@@ -475,7 +484,7 @@
                 </span>
               </button>
               <button
-                @click="open_search_modal = ! open_search_modal; open_sidebar = false; open_hamburger_menu = false"
+                @click="open_search_modal = ! open_search_modal; open_sidebar = false; open_hamburger_menu = false;"
                 type="button"
                 class="-my-1 ml-auto flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-600 sm:mr-6 lg:hidden dark:text-yellow-50 dark:hover:text-slate-300"
               >
