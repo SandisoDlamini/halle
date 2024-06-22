@@ -9,7 +9,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        rubik: ["Rubik", ...defaultTheme.fontFamily.sans],
+        rubik: ["Rubik-Regular", ...defaultTheme.fontFamily.sans],
+        "rubik-semibold": ["Rubik-Semibold", ...defaultTheme.fontFamily.sans],
+        "rubik-medium": ["Rubik-Medium", ...defaultTheme.fontFamily.sans],
+        "rubik-italic": ["Rubik-Italic", ...defaultTheme.fontFamily.sans],
+        "rubik-semibold-italic": [
+          "Rubik-SemiboldItalic",
+          ...defaultTheme.fontFamily.sans,
+        ],
       },
       animation: {
         "bounce-slow": "bounce 8s infinite",

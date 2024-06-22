@@ -6,6 +6,34 @@
   display: none !important;
 }
 
+@layer base {
+  @font-face {
+    font-family: "Rubik-Regular";
+    display: swap;
+    src: url("fonts/Rubik-Regular.ttf") format("woff2");
+  }
+  @font-face {
+    font-family: "Rubik-SemiBold";
+    display: swap;
+    src: url("fonts/Rubik-SemiBold.ttf") format("woff2");
+  }
+  @font-face {
+    font-family: "Rubik-Italic";
+    display: swap;
+    src: url("fonts/Rubik-Italic.ttf") format("woff2");
+  }
+  @font-face {
+    font-family: "Rubik-SemiBoldItalic";
+    display: swap;
+    src: url("fonts/Rubik-SemiBoldItalic.ttf") format("woff2");
+  }
+  @font-face {
+    font-family: "Rubik-Medium";
+    display: swap;
+    src: url("fonts/Rubik-Medium.ttf") format("woff2");
+  }
+}
+
 @layer utilities {
   .animation-delay-5000 {
     animation-delay: 5s;
@@ -39,12 +67,5 @@
   }
   .animation-delay-i4 {
     animation-delay: calc(18s / 4 * (4 - 4) * -1);
-  }
-}
-
-@layer base {
-  @font-face {
-    font-family: "Rubik";
-    src: url("fonts/Rubik-VariableFont.wght.ttf") format("ttf");
   }
 }

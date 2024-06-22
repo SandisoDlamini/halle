@@ -73,7 +73,7 @@
   <body
     x-data="theme"
     hx-boost="true"
-    class="bg-slate-50 antialiased selection:bg-slate-500 dark:bg-slate-900"
+    class="bg-slate-50 antialiased selection:bg-slate-500 lg:m-auto dark:bg-slate-900"
   >
     <div
       x-data="{
@@ -104,7 +104,7 @@
                   height="42"
                 />
                 <h1
-                  class="ml-1 mt-1 font-extrabold text-slate-900 dark:text-slate-200"
+                  class="font-rubik-semibold ml-1 mt-1 text-slate-900 dark:text-slate-200"
                 >
                   halle
                 </h1>
@@ -175,7 +175,7 @@
               id="sidebar-content"
               class="fixed left-0 top-0 flex h-screen w-64 flex-col justify-between rounded-lg bg-slate-100/90 pl-1 pr-2 backdrop-blur-lg dark:bg-slate-900/90"
             >
-              <ul class="">
+              <ul class="font-rubik-semibold">
                 <div class="h-16"></div>
                 <button
                   @click="open_sidebar = false"
@@ -277,8 +277,9 @@
                   type="search"
                   id="popup-search"
                   name="search"
+                  autocomplete="off"
                   enterkeyhint="search"
-                  maxlength="64"
+                  maxlength="70"
                   placeholder="Begin typing to search"
                   class="w-full rounded-md border-none bg-slate-700 bg-transparent pl-1 text-slate-800 outline-none focus:outline-none dark:text-slate-200"
                 />
@@ -331,7 +332,7 @@
               id="menu-content"
               class="fixed right-2 top-0 flex h-56 w-60 flex-col justify-between rounded-lg bg-slate-200 pl-1 pr-2 backdrop-blur-lg dark:bg-slate-900/90"
             >
-              <ul class="space-y-6 text-2xl font-extrabold">
+              <ul class="font-rubik-semibold space-y-6 text-2xl font-extrabold">
                 <div class="h-16"></div>
                 <button
                   @click="open_hamburger_menu = false"
@@ -417,11 +418,14 @@
                 type="search"
                 id="search-input"
                 name="search"
+                autocomplete="off"
+                enterkeyhint="search"
+                maxlength="70"
                 placeholder="Begin typing to search"
                 class="w-full rounded-md border-none bg-slate-200 bg-transparent px-4 pl-2 text-gray-900 outline-none focus:outline-none dark:bg-slate-100"
               />
               <button
-                class="m-auto my-px mr-px rounded-md bg-blue-900 px-2 font-medium text-yellow-50 hover:bg-blue-900 hover:text-slate-200 active:bg-gradient-to-tr active:from-blue-700 active:via-blue-600 active:to-blue-700 dark:bg-blue-950"
+                class="font-rubik-medium m-auto my-px mr-px rounded-md bg-blue-900 px-2 font-medium text-yellow-50 hover:bg-blue-900 hover:text-slate-200 active:bg-gradient-to-tr active:from-blue-700 active:via-blue-600 active:to-blue-700 dark:bg-blue-950"
                 type="button"
                 hx-get="/api/hello"
                 hx-swap="InnerHTML"
@@ -436,7 +440,7 @@
                 id="toggle-theme"
                 type="button"
                 @click="toggle"
-                class="mr-4"
+                class="mr-4 lg:mr-5"
               >
                 <span class="">
                   <svg
@@ -538,7 +542,7 @@
             <div class="hidden items-center md:flex" id="right-side">
               <nav>
                 <ul
-                  class="hidden items-center gap-x-8 pr-8 text-slate-900 md:flex dark:text-slate-200"
+                  class="font-rubik-semibold hidden items-center gap-x-8 pr-8 text-slate-900 md:flex dark:text-slate-200"
                 >
                   {% block top_bar_nav %}
                   <a
