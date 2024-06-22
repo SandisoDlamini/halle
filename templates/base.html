@@ -73,7 +73,7 @@
   <body
     x-data="theme"
     hx-boost="true"
-    class="bg-slate-50 antialiased selection:bg-slate-500 lg:m-auto dark:bg-slate-900"
+    class="max-w-screen-2xl bg-slate-50 antialiased selection:bg-slate-500 xl:m-auto dark:bg-slate-900"
   >
     <div
       x-data="{
@@ -86,11 +86,11 @@
     >
       <div
         id="sidebar"
-        class="left-0 top-0 hidden h-screen w-64 flex-none flex-row lg:block print:hidden"
+        class="left-0 top-0 hidden h-screen w-64 flex-none flex-row lg:block 2xl:left-auto print:hidden"
       >
         <nav
           id="sidebar-content"
-          class="fixed left-0 top-0 flex h-screen w-64 flex-col justify-between rounded-lg bg-slate-100/45 pl-1 pr-2 backdrop-blur-lg dark:bg-slate-800/5"
+          class="fixed left-0 top-0 flex h-dvh w-64 flex-col justify-between rounded-lg bg-slate-100/45 pl-1 pr-2 backdrop-blur-lg 2xl:left-auto dark:bg-slate-800/5"
         >
           <ul class="font-rubik">
             <div class="ml-6 flex" id="company-logo">
@@ -173,7 +173,7 @@
           <div class="fixed bg-slate-50 dark:bg-slate-800">
             <nav
               id="sidebar-content"
-              class="fixed left-0 top-0 flex h-screen w-64 flex-col justify-between rounded-lg bg-slate-100/90 pl-1 pr-2 backdrop-blur-lg dark:bg-slate-900/90"
+              class="fixed left-0 top-0 flex h-dvh w-64 flex-col justify-between rounded-lg bg-slate-100/90 pl-1 pr-2 backdrop-blur-lg dark:bg-slate-900/90"
             >
               <ul class="font-rubik-semibold">
                 <div class="h-16"></div>
