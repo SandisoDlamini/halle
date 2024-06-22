@@ -98,14 +98,8 @@
                 class="mt-8 flex h-full w-fit flex-row justify-items-center"
                 href="/"
                 ><img
-                  class="hidden dark:block"
+                  class="rounded-sm bg-gradient-to-tr from-slate-600/40 to-slate-400/10 dark:bg-none"
                   src="/assets/icon5.png"
-                  width="42"
-                  height="42"
-                />
-                <img
-                  class="block dark:hidden"
-                  src="/assets/icon6.png"
                   width="42"
                   height="42"
                 />
@@ -286,7 +280,7 @@
                   enterkeyhint="search"
                   maxlength="64"
                   placeholder="Begin typing to search"
-                  class="w-full rounded-md border-none bg-slate-700 bg-transparent pl-1 text-slate-200 outline-none focus:outline-none"
+                  class="w-full rounded-md border-none bg-slate-700 bg-transparent pl-1 text-slate-800 outline-none focus:outline-none dark:text-slate-200"
                 />
                 <label
                   for="popup-search"
@@ -407,21 +401,16 @@
               class="ml-8 flex size-full flex-row justify-items-center lg:hidden"
               href="/"
               ><img
-                class="hidden dark:block"
+                class="rounded-sm bg-gradient-to-tr from-slate-600/40 to-slate-400/10 dark:bg-none"
                 src="/assets/icon5.png"
                 width="34"
                 height="34"
               />
-              <img
-                class="block dark:hidden"
-                src="/assets/icon6.png"
-                width="34"
-                height="34"
-              />
+
               <h1 class="ml-1 text-slate-900 dark:text-slate-200">halle</h1>
             </a>
             <div
-              class="ml-32 hidden h-8 w-96 rounded-md bg-slate-300 font-normal lg:flex"
+              class="ml-32 hidden h-8 w-96 rounded-md bg-slate-200 font-normal lg:flex dark:bg-slate-100"
               id="search-bar"
             >
               <input
@@ -429,10 +418,10 @@
                 id="search-input"
                 name="search"
                 placeholder="Begin typing to search"
-                class="w-full rounded-md border-none bg-slate-700 bg-transparent px-4 pl-2 text-gray-900 outline-none focus:outline-none"
+                class="w-full rounded-md border-none bg-slate-200 bg-transparent px-4 pl-2 text-gray-900 outline-none focus:outline-none dark:bg-slate-100"
               />
               <button
-                class="m-auto my-px mr-px rounded-md bg-blue-950 px-2 font-medium text-yellow-50 hover:bg-blue-900 hover:text-slate-200 active:bg-gradient-to-tr active:from-blue-700 active:via-blue-600 active:to-blue-700"
+                class="m-auto my-px mr-px rounded-md bg-blue-900 px-2 font-medium text-yellow-50 hover:bg-blue-900 hover:text-slate-200 active:bg-gradient-to-tr active:from-blue-700 active:via-blue-600 active:to-blue-700 dark:bg-blue-950"
                 type="button"
                 hx-get="/api/hello"
                 hx-swap="InnerHTML"
@@ -443,7 +432,12 @@
           </div>
           <div class="flex flex-row">
             <div class="flex flex-row">
-              <button type="button" @click="toggle" class="mr-4">
+              <button
+                id="toggle-theme"
+                type="button"
+                @click="toggle"
+                class="mr-4"
+              >
                 <span class="">
                   <svg
                     class="block text-yellow-300 dark:hidden"
