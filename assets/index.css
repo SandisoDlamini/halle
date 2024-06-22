@@ -41,3 +41,10 @@
     animation-delay: calc(18s / 4 * (4 - 4) * -1);
   }
 }
+
+@layer base {
+  @font-face {
+    font-family: "Rubik";
+    src: url("fonts/Rubik-VariableFont.wght.ttf") format("ttf");
+  }
+}

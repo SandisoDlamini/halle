@@ -1,12 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 
 const plugin = require("tailwindcss/plugin");
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   content: ["./templates/*.html"],
   darkMode: "selector",
   theme: {
     extend: {
+      fontFamily: {
+        rubik: ["Rubik", ...defaultTheme.fontFamily.sans],
+      },
       animation: {
         "bounce-slow": "bounce 8s infinite",
         "pulse-slow": "pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite",
