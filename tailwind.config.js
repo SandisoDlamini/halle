@@ -140,5 +140,6 @@ module.exports = {
       }
       addUtilities(neonUtilities);
     }),
+    require("@tailwindcss/typography"),
   ],
 };
