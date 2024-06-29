@@ -17,3 +17,4 @@ tower = "0.4.9"
 tower-http = { version = "0.5.2", features = ["fs", "trace"] }
 tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
 sqlx = { version = "0.7.4", features = ["runtime-tokio-rustls", "postgres"] }
+sqlx-cli = "0.7.4"
