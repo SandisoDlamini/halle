@@ -1,3 +1,5 @@
+use std::io::Result;
+
 use axum::{response::Html, routing::get, Router};
 use lazy_static::lazy_static;
 use tera::Tera;
@@ -5,6 +7,14 @@ use tokio::net::TcpListener;
 use tower_http::services::ServeDir;
 use tracing::{debug, info};
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
+
+// const POSTGRES_URL: &str = env!("POSTGRES_URL");
+//
+// struct Article {
+//     pub title: String,
+//     pub description: String,
+//     pub content: Html<String>,
+// }
 
 lazy_static! {
     pub static ref TEMPLATES: Tera = {
@@ -45,7 +55,9 @@ macro_rules! create_page_function {
 }
 
 #[tokio::main]
-async fn main() {
+async fn main() -> Result<()> {
+    // let pg_pool = sqlx::postgres::PgPool::connect(POSTGRES_URL).await.unwrap();
+
     tracing_subscriber::registry()
         .with(
             tracing_subscriber::EnvFilter::try_from_default_env()
@@ -93,6 +105,8 @@ async fn main() {
         .await
         .unwrap();
     // endregion: ---Start Server
+
+    Ok(())
 }
 
 // region: ---HANDLER functions

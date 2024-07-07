@@ -1,5 +1,7 @@
 [env]
-
+# Postgres url
+POSTGRES_URL = "postgres://sandiso@127.0.0.1:5432/mydb"
+# Postgres password
 
 # Scope down tracing, to filter
 RUST_LOG = "axum_webapp=debug"
