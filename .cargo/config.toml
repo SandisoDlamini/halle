@@ -1,6 +1,6 @@
 [env]
 # Postgres url
-POSTGRES_URL = "postgres://sandiso@127.0.0.1:5432/mydb"
+POSTGRES_URL = "postgres://sandiso@localhost:5432/web"
 # Postgres password
 
 # Scope down tracing, to filter

@@ -1,4 +1,4 @@
-use std::io::Result;
+use std::error::Error;
 
 use axum::{response::Html, routing::get, Router};
 use lazy_static::lazy_static;
@@ -8,13 +8,15 @@ use tower_http::services::ServeDir;
 use tracing::{debug, info};
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
-// const POSTGRES_URL: &str = env!("POSTGRES_URL");
-//
-// struct Article {
-//     pub title: String,
-//     pub description: String,
-//     pub content: Html<String>,
-// }
+const POSTGRES_URL: &str = env!("POSTGRES_URL");
+
+struct Article {
+    pub title: String,
+    pub date_of_publication: String,
+    pub category: String,
+    pub description: String,
+    pub content: String,
+}
 
 lazy_static! {
     pub static ref TEMPLATES: Tera = {
@@ -55,8 +57,32 @@ macro_rules! create_page_function {
 }
 
 #[tokio::main]
-async fn main() -> Result<()> {
-    // let pg_pool = sqlx::postgres::PgPool::connect(POSTGRES_URL).await.unwrap();
+async fn main() -> std::io::Result<()> {
+    let conn = sqlx::postgres::PgPool::connect(POSTGRES_URL).await.unwrap();
+
+    match sqlx::migrate!("./migrations").run(&conn).await {
+        Ok(t) => t,
+        Err(e) => {
+            println!("Migration error(s): {}", e);
+            ::std::process::exit(1);
+        }
+    };
+
+    let article = Article {
+        title: "Salem's Lot".to_string(),
+        date_of_publication: "2024-05-09".to_string(),
+        category: "Horror".to_string(),
+        description: "An interesting Horror story.".to_string(),
+        content: "It all stated".to_string(),
+    };
+
+    match create_article(&article, &conn).await {
+        Ok(t) => t,
+        Err(e) => {
+            println!("Database creation error(s): {}", e);
+            ::std::process::exit(1);
+        }
+    }
 
     tracing_subscriber::registry()
         .with(
@@ -96,14 +122,12 @@ async fn main() -> Result<()> {
     // endregion: -- create router
 
     // region: ---Start Server
-    let listener = TcpListener::bind("127.0.0.1:8080").await.unwrap();
+    let listener = TcpListener::bind("127.0.0.1:8080").await?;
     info!(
         "router initialized, now LISTENING on {:?}\n",
         listener.local_addr().unwrap()
     );
-    axum::serve(listener, app.into_make_service())
-        .await
-        .unwrap();
+    axum::serve(listener, app.into_make_service()).await?;
     // endregion: ---Start Server
 
     Ok(())
@@ -114,6 +138,23 @@ async fn htmx_hello() -> &'static str {
     debug!("{:<12} - app: loading hello api...", "HANDLER");
 
     "Hello from htmx!!"
+}
+
+async fn create_article(article: &Article, conn: &sqlx::PgPool) -> Result<(), Box<dyn Error>> {
+    let query = "INSERT INTO articles 
+        (title, date_of_publication, category, description, content) 
+        VALUES ($1, $2, $3, $4, $5)";
+
+    sqlx::query(query)
+        .bind(&article.title)
+        .bind(&article.date_of_publication)
+        .bind(&article.category)
+        .bind(&article.description)
+        .bind(&article.content)
+        .execute(conn)
+        .await?;
+
+    Ok(())
 }
 
 create_page_function!(home, "home.html");
