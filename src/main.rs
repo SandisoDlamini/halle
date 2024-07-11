@@ -46,7 +46,7 @@ macro_rules! create_page_function {
             let page_content = match TEMPLATES.render(template_name, &context1) {
                 Ok(t) => t,
                 Err(e) => {
-                    println!("Parsing error(s): {}", e);
+                    println!("Template parsing error(s): {}", e);
                     ::std::process::exit(1);
                 }
             };
@@ -61,7 +61,7 @@ async fn main() -> std::io::Result<()> {
     let conn = sqlx::postgres::PgPool::connect(POSTGRES_URL).await.unwrap();
 
     match sqlx::migrate!("./migrations").run(&conn).await {
-        Ok(t) => t,
+        Ok(m) => m,
         Err(e) => {
             println!("Migration error(s): {}", e);
             ::std::process::exit(1);
@@ -77,7 +77,7 @@ async fn main() -> std::io::Result<()> {
     };
 
     match create_article(&article, &conn).await {
-        Ok(t) => t,
+        Ok(d) => d,
         Err(e) => {
             println!("Database creation error(s): {}", e);
             ::std::process::exit(1);
