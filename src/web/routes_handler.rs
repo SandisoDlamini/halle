@@ -1,20 +1,23 @@
 use axum::{response::Html, routing::get, Router};
-use lazy_static::lazy_static;
+use std::sync::OnceLock;
 use tera::Tera;
 use tracing::debug;
+static TEMPLATES: OnceLock<Tera> = OnceLock::new();
 
-lazy_static! {
-    pub static ref TEMPLATES: Tera = {
-        let mut tera = match Tera::new("templates/**/*") {
-            Ok(t) => t,
-            Err(e) => {
-                println!("Parsing error(s): {}", e);
-                ::std::process::exit(1);
-            }
-        };
-        tera.autoescape_on(vec![".html", ".sql"]);
-        tera
+fn initialize_templates() -> Tera {
+    let mut tera = match Tera::new("templates/**/*") {
+        Ok(t) => t,
+        Err(e) => {
+            println!("Parsing error(s): {}", e);
+            ::std::process::exit(1);
+        }
     };
+    tera.autoescape_on(vec![".html", ".sql"]);
+    tera
+}
+
+fn get_templates() -> &'static Tera {
+    TEMPLATES.get_or_init(initialize_templates)
 }
 
 macro_rules! create_page_function {
@@ -28,7 +31,7 @@ macro_rules! create_page_function {
 
             let context1 = tera::Context::new();
             let template_name = $expression;
-            let page_content = match TEMPLATES.render(template_name, &context1) {
+            let page_content = match get_templates().render(template_name, &context1) {
                 Ok(t) => t,
                 Err(e) => {
                     println!("Template parsing error(s): {}", e);

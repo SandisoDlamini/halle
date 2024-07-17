@@ -2,7 +2,7 @@ use std::sync::Arc;
 
 use axum::{
     body::Bytes,
-    extract::MatchedPath,
+    extract::{MatchedPath, State},
     http::{HeaderMap, Request},
     response::Response,
     routing::get,
@@ -17,16 +17,9 @@ use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
 mod web;
 
+#[derive(Clone)]
 struct AppState {
     conn: PgPool,
-}
-
-struct Article {
-    pub title: String,
-    pub date_of_publication: String,
-    pub category: String,
-    pub description: String,
-    pub content: String,
 }
 
 #[tokio::main]
@@ -40,16 +33,6 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .await?;
 
     sqlx::migrate!("./migrations").run(&conn).await?;
-
-    let article = Article {
-        title: "Salem's Lot".to_string(),
-        date_of_publication: "2024-05-09".to_string(),
-        category: "Horror".to_string(),
-        description: "An interesting Horror story.".to_string(),
-        content: "It all stated".to_string(),
-    };
-
-    create_article(&article, &conn).await?;
 
     tracing_subscriber::registry()
         .with(
@@ -111,8 +94,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                     },
                 ),
         )
-        .with_state(Arc::new(state))
+        .with_state(Arc::new(state.clone()))
         .merge(web::routes_handler::routes())
+        .merge(web::init_db::routes(State(Arc::new(state.clone()))))
         .nest_service(
             "/assets",
             ServeDir::new(format!("{}/assets", assets_path.to_str().unwrap())),
@@ -138,23 +122,4 @@ async fn htmx_hello() -> &'static str {
     "Hello from htmx!!"
 }
 
-async fn create_article(
-    article: &Article,
-    conn: &sqlx::PgPool,
-) -> Result<(), Box<dyn std::error::Error>> {
-    let query = "INSERT INTO articles 
-        (title, date_of_publication, category, description, content) 
-        VALUES ($1, $2, $3, $4, $5)";
-
-    sqlx::query(query)
-        .bind(&article.title)
-        .bind(&article.date_of_publication)
-        .bind(&article.category)
-        .bind(&article.description)
-        .bind(&article.content)
-        .execute(conn)
-        .await?;
-
-    Ok(())
-}
 // endregion: --- HANDLER functions
