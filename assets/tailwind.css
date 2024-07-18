@@ -486,6 +486,30 @@ video {
   src: url("fonts/Rubik-Medium.ttf") format("woff2");
 }
 
+@font-face {
+  font-family: "Inter-Medium";
+
+  display: swap;
+
+  src: url("fonts/Inter-Medium.ttf") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter-SemiBold";
+
+  display: swap;
+
+  src: url("fonts/Inter-SemiBold.ttf") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter-Regular";
+
+  display: swap;
+
+  src: url("fonts/Inter-Regular.ttf") format("woff2");
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -1930,6 +1954,10 @@ video {
   text-align: center;
 }
 
+.font-inter-semibold {
+  font-family: Inter-Semibold, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 .font-rubik {
   font-family: Rubik-Regular, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
@@ -1940,6 +1968,10 @@ video {
 
 .font-rubik-semibold {
   font-family: Rubik-Semibold, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.font-inter-medium {
+  font-family: Inter-Medium, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .text-2xl {
@@ -2422,6 +2454,11 @@ video {
   border-color: rgb(30 41 59 / 0.15);
 }
 
+.hover\:border-sky-800:hover {
+  --tw-border-opacity: 1;
+  border-color: rgb(7 89 133 / var(--tw-border-opacity));
+}
+
 .hover\:bg-blue-900:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(30 58 138 / var(--tw-bg-opacity));
@@ -2478,6 +2515,12 @@ video {
 .hover\:from-sky-700:hover {
   --tw-gradient-from: #0369a1 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(3 105 161 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.hover\:from-sky-800:hover {
+  --tw-gradient-from: #075985 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(7 89 133 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 

@@ -11,6 +11,9 @@ module.exports = {
       fontFamily: {
         rubik: ["Rubik-Regular", ...defaultTheme.fontFamily.sans],
         "rubik-semibold": ["Rubik-Semibold", ...defaultTheme.fontFamily.sans],
+        "inter-semibold": ["Inter-Semibold", ...defaultTheme.fontFamily.sans],
+        "inter-regular": ["Inter-Regular", ...defaultTheme.fontFamily.sans],
+        "inter-medium": ["Inter-Medium", ...defaultTheme.fontFamily.sans],
         "rubik-medium": ["Rubik-Medium", ...defaultTheme.fontFamily.sans],
         "rubik-italic": ["Rubik-Italic", ...defaultTheme.fontFamily.sans],
         "rubik-semibold-italic": [

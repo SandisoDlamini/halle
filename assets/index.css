@@ -32,6 +32,21 @@
     display: swap;
     src: url("fonts/Rubik-Medium.ttf") format("woff2");
   }
+  @font-face {
+    font-family: "Inter-Medium";
+    display: swap;
+    src: url("fonts/Inter-Medium.ttf") format("woff2");
+  }
+  @font-face {
+    font-family: "Inter-SemiBold";
+    display: swap;
+    src: url("fonts/Inter-SemiBold.ttf") format("woff2");
+  }
+  @font-face {
+    font-family: "Inter-Regular";
+    display: swap;
+    src: url("fonts/Inter-Regular.ttf") format("woff2");
+  }
 }
 
 @layer utilities {
