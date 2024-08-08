@@ -1161,10 +1161,6 @@ video {
   width: 100%;
 }
 
-.max-w-80 {
-  max-width: 20rem;
-}
-
 .max-w-\[calc\(100\%-3rem\)\] {
   max-width: calc(100% - 3rem);
 }
@@ -2794,10 +2790,6 @@ video {
 
   .sm\:w-\[32rem\] {
     width: 32rem;
-  }
-
-  .sm\:w-full {
-    width: 100%;
   }
 
   .sm\:flex-row {
